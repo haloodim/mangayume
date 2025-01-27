@@ -100,7 +100,7 @@ export default function Chapter({ chapter, error }) {
         <div className="bg-gray-900 text-white font-sans">
             <Navbar />
             <Sidebar />
-            <main className="container mx-auto p-4">
+            <main className="container mx-auto p-4 min-h-screen">
                 {/* Kartu dengan judul dan link */}
                 <div className="bg-gray-800 p-4 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40 mt-6 mb-2">
                     <h2 className="text-2xl font-bold text-center mb-2">

@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { PencilIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { BookOpenIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useRouter } from 'next/router';
 
 const generateSlug = (folderName) => {
   return folderName
@@ -10,41 +10,34 @@ const generateSlug = (folderName) => {
     .replace(/[^\w-]+/g, '');
 };
 
-export default function ProjectContent({ comics }) {
+export default function ListContent({ comics }) {
   const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(15);
+  const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
+  const itemsPerPage = 15; // Maksimal konten per halaman
 
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      if (window.innerWidth <= 768) {
-        setItemsPerPage(12); // Untuk mobile, tampilkan 12 item per halaman
-      } else {
-        setItemsPerPage(15); // Untuk layar besar, tampilkan 15 item per halaman
-      }
-    };
+  // Hitung total halaman berdasarkan jumlah konten
+  const totalPages = Math.ceil(comics.length / itemsPerPage);
 
-    updateItemsPerPage(); // Atur item per halaman saat pertama kali load
-    window.addEventListener('resize', updateItemsPerPage); // Update saat ukuran layar berubah
-
-    return () => {
-      window.removeEventListener('resize', updateItemsPerPage); // Bersihkan event listener saat unmount
-    };
-  }, []);
-
-  const filteredComics = comics.filter((comic) => comic.project === 'Yes');
-  const totalPages = Math.ceil(filteredComics.length / itemsPerPage);
-
+  // Ambil currentPage dari query parameter URL (jika ada)
   useEffect(() => {
     if (router.query.page) {
       setCurrentPage(Number(router.query.page));
     }
   }, [router.query.page]);
 
-  const currentComics = filteredComics.slice(
+  // Filter konten untuk halaman saat ini
+  const currentComics = comics.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  // Debug log untuk memastikan data yang tampil
+  useEffect(() => {
+    console.log('Comics Data:', comics);
+    console.log('Current Page:', currentPage);
+    console.log('Total Pages:', totalPages);
+    console.log('Displaying Comics on Page:', currentComics);
+  }, [comics, currentPage]);
 
   const getBackgroundColor = (type) => {
     switch (type) {
@@ -62,7 +55,8 @@ export default function ProjectContent({ comics }) {
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
-      router.push(`/project?page=${page}`, undefined, { shallow: true });
+      // Update URL dengan query parameter ?page={page}
+      router.push(`?page=${page}`, undefined, { shallow: true });
     }
   };
 
@@ -70,9 +64,9 @@ export default function ProjectContent({ comics }) {
     <main className="container mx-auto p-4 min-h-screen">
       <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
         <div className="flex items-center space-x-2 mb-4">
-          <PencilIcon className="h-5 w-5 text-white" />
+          <BookOpenIcon className="h-5 w-5 text-white" />
           <ChevronRightIcon className="h-3 w-3 text-white" />
-          <span className="text-white text-lg">Project</span>
+          <span className="text-white text-lg">Daftar Komik</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">

@@ -148,7 +148,7 @@ export default function Komik({ comic, chapters = [], error }) {
     <div className="bg-gray-900 text-white font-sans">
       <Navbar />
       <Sidebar />
-      <main className="container mx-auto p-4">
+      <main className="container mx-auto p-4 min-h-screen">
         <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
           <div className="flex flex-col md:flex-row items-center md:items-start">
             <div className="md:w-1/3 text-center md:text-left">

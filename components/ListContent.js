@@ -13,7 +13,27 @@ const generateSlug = (folderName) => {
 export default function ListContent({ comics }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
-  const itemsPerPage = 15; // Maksimal konten per halaman
+  const [itemsPerPage, setItemsPerPage] = useState(15); // Default 15 item per halaman
+
+  // Menentukan jumlah item per halaman berdasarkan lebar layar
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth <= 640) { // Untuk perangkat mobile (small screens)
+        setItemsPerPage(12); // Maksimal 12 item per halaman untuk mobile
+      } else {
+        setItemsPerPage(15); // 15 item per halaman untuk layar besar
+      }
+    };
+
+    // Panggil fungsi di awal
+    updateItemsPerPage();
+
+    // Tambahkan event listener untuk mendeteksi perubahan ukuran layar
+    window.addEventListener('resize', updateItemsPerPage);
+
+    // Bersihkan event listener ketika komponen di-unmount
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
 
   // Hitung total halaman berdasarkan jumlah konten
   const totalPages = Math.ceil(comics.length / itemsPerPage);
@@ -30,14 +50,6 @@ export default function ListContent({ comics }) {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
-  // Debug log untuk memastikan data yang tampil
-  useEffect(() => {
-    console.log('Comics Data:', comics);
-    console.log('Current Page:', currentPage);
-    console.log('Total Pages:', totalPages);
-    console.log('Displaying Comics on Page:', currentComics);
-  }, [comics, currentPage]);
 
   const getBackgroundColor = (type) => {
     switch (type) {
@@ -61,7 +73,7 @@ export default function ListContent({ comics }) {
   };
 
   return (
-    <main className="container mx-auto p-4">
+    <main className="container mx-auto p-4 min-h-screen">
       <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
         <div className="flex items-center space-x-2 mb-4">
           <BookOpenIcon className="h-5 w-5 text-white" />
