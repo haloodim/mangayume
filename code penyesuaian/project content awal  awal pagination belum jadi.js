@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import { PencilIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 
 // Fungsi untuk membuat slug dari nama folder
 const generateSlug = (folderName) => {
@@ -12,28 +10,7 @@ const generateSlug = (folderName) => {
 };
 
 export default function ProjectContent({ comics }) {
-  const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
-  const itemsPerPage = 15; // Konten per halaman
-
-  // Filter berdasarkan project "Yes"
-  const filteredComics = comics.filter((comic) => comic.project === 'Yes');
-
-  // Hitung total halaman berdasarkan jumlah konten
-  const totalPages = Math.ceil(filteredComics.length / itemsPerPage);
-
-  // Ambil currentPage dari query parameter URL
-  useEffect(() => {
-    if (router.query.page) {
-      setCurrentPage(Number(router.query.page));
-    }
-  }, [router.query.page]);
-
-  // Filter konten untuk halaman saat ini
-  const currentComics = filteredComics.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const filteredComics = comics.filter((comic) => comic.project === 'Yes'); // Filter berdasarkan project "Yes"
 
   const getBackgroundColor = (type) => {
     switch (type) {
@@ -48,13 +25,6 @@ export default function ProjectContent({ comics }) {
     }
   };
 
-  const handlePageChange = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-      router.push(`/komik?page=${page}`, undefined, { shallow: true });
-    }
-  };
-
   return (
     <main className="container mx-auto p-4">
       <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
@@ -65,7 +35,7 @@ export default function ProjectContent({ comics }) {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {currentComics.map((comic) => {
+          {filteredComics.map((comic) => {
             const slug = generateSlug(comic.title); // Hasilkan slug dari title komik
             return (
               <div key={slug} className="flex flex-col items-center text-center">
@@ -101,29 +71,36 @@ export default function ProjectContent({ comics }) {
         {/* Pagination */}
         <div className="col-span-full flex justify-center mt-4">
           <nav className="inline-flex rounded-md shadow">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-              disabled={currentPage === 1}
+            <Link
+              href="/komik?page=1"
+              className="px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md"
             >
               Previous
-            </button>
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white ${currentPage === index + 1 ? 'bg-gray-700 text-white' : ''}`}
-              >
-                {index + 1}
-              </button>
-            ))}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-              disabled={currentPage === totalPages}
+            </Link>
+            <Link
+              href="/komik?page=1"
+              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
+            >
+              1
+            </Link>
+            <Link
+              href="/komik?page=2"
+              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
+            >
+              2
+            </Link>
+            <Link
+              href="/komik?page=3"
+              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
+            >
+              3
+            </Link>
+            <Link
+              href="/komik?page=2"
+              className="px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md"
             >
               Next
-            </button>
+            </Link>
           </nav>
         </div>
       </div>

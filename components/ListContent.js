@@ -1,15 +1,44 @@
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { BookOpenIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useRouter } from 'next/router';
 
-// Fungsi untuk membuat slug dari nama folder
 const generateSlug = (folderName) => {
   return folderName
     .toLowerCase()
-    .replace(/ /g, '-') // Ganti spasi dengan "-"
-    .replace(/[^\w-]+/g, ''); // Hapus karakter non-alfanumerik
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
 };
 
 export default function ListContent({ comics }) {
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
+  const itemsPerPage = 15; // Maksimal konten per halaman
+
+  // Hitung total halaman berdasarkan jumlah konten
+  const totalPages = Math.ceil(comics.length / itemsPerPage);
+
+  // Ambil currentPage dari query parameter URL (jika ada)
+  useEffect(() => {
+    if (router.query.page) {
+      setCurrentPage(Number(router.query.page));
+    }
+  }, [router.query.page]);
+
+  // Filter konten untuk halaman saat ini
+  const currentComics = comics.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Debug log untuk memastikan data yang tampil
+  useEffect(() => {
+    console.log('Comics Data:', comics);
+    console.log('Current Page:', currentPage);
+    console.log('Total Pages:', totalPages);
+    console.log('Displaying Comics on Page:', currentComics);
+  }, [comics, currentPage]);
+
   const getBackgroundColor = (type) => {
     switch (type) {
       case 'Manga':
@@ -19,7 +48,15 @@ export default function ListContent({ comics }) {
       case 'Manhua':
         return 'bg-green-500';
       default:
-        return 'bg-gray-500'; // Default color
+        return 'bg-gray-500';
+    }
+  };
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      // Update URL dengan query parameter ?page={page}
+      router.push(`?page=${page}`, undefined, { shallow: true });
     }
   };
 
@@ -33,14 +70,14 @@ export default function ListContent({ comics }) {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {comics.map((comic) => {
-            const slug = generateSlug(comic.title); // Hasilkan slug dari title
+          {currentComics.map((comic) => {
+            const slug = generateSlug(comic.title);
             return (
               <div key={slug} className="flex flex-col items-center text-center">
                 <Link href={`/komik/${slug}`} className="image-hover">
                   <img
                     alt={`Cover of ${comic.title}`}
-                    className="rounded-lg w-full h-64 object-cover" // Ukuran gambar yang seragam (lebar 48, tinggi 72)
+                    className="rounded-lg w-full h-64 object-cover"
                     src={comic.image}
                     loading="lazy"
                   />
@@ -50,14 +87,21 @@ export default function ListContent({ comics }) {
                     {comic.type}
                   </div>
                   <div className="absolute bottom-2 right-2 flex items-center">
-                    <div className={`bg-${comic.status === 'Ongoing' ? 'green' : 'red'}-500 rounded-full w-3 h-3 mr-1`}></div>
+                    <div
+                      className={`bg-${comic.status === 'Ongoing' ? 'green' : 'red'}-500 rounded-full w-3 h-3 mr-1`}
+                    ></div>
                     <span className="text-xs">{comic.status}</span>
                   </div>
                 </Link>
-                <Link href={`/komik/${slug}`} className="text-[15px] font-bold mt-4 title-hover">
+                <Link
+                  href={`/komik/${slug}`}
+                  className="text-[15px] font-bold mt-4 title-hover"
+                >
                   <div className="text-center w-full">
                     <span className="block">
-                      {comic.title.length > 32 ? comic.title.slice(0, 32) + '...' : comic.title}
+                      {comic.title.length > 32
+                        ? comic.title.slice(0, 32) + '...'
+                        : comic.title}
                     </span>
                   </div>
                 </Link>
@@ -66,39 +110,32 @@ export default function ListContent({ comics }) {
           })}
         </div>
 
-        {/* Pagination (opsional, bisa diubah nanti) */}
+        {/* Pagination */}
         <div className="col-span-full flex justify-center mt-4">
           <nav className="inline-flex rounded-md shadow">
-            <Link
-              href="/list?page=1"
-              className="px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md"
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={currentPage === 1}
             >
               Previous
-            </Link>
-            <Link
-              href="/list?page=1"
-              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
-            >
-              1
-            </Link>
-            <Link
-              href="/list?page=2"
-              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
-            >
-              2
-            </Link>
-            <Link
-              href="/list?page=3"
-              className="px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white"
-            >
-              3
-            </Link>
-            <Link
-              href="/list?page=2"
-              className="px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md"
+            </button>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white ${currentPage === index + 1 ? 'bg-gray-700 text-white' : ''}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={currentPage === totalPages}
             >
               Next
-            </Link>
+            </button>
           </nav>
         </div>
       </div>
