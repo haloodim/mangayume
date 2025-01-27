@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+/* Side navigation menu */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Hover effects */
+.title-hover:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.image-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-hover::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0);
+    transform: rotate(45deg);
+    transition: top 0.5s ease, left 0.5s ease;
+}
+
+.image-hover:hover::before {
+    background: rgba(255, 255, 255, 0.3);
+    top: 100%;
+    left: 100%;
+}
+
+/* Floating button */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4A90E2;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #357ABD;
+}
+
+
+/* Deskripsi */
+/* Hover animation */
+.chapter-item:hover {
+    background-color: #4a5568;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.hover-chapter {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.chapter-item:hover .hover-chapter {
+    color: #63b3ed; /* Tailwind's blue-400 */
+    transform: translateX(10px);
+}
+.hover-chapter::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    transition: width 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.chapter-item:hover .hover-chapter::before {
+    content: '→';
+    width: auto;
+    margin-right: 2px;
+    color: #63b3ed; /* Tailwind's blue-400 */
+}
+.chapter-item span:last-child {
+    transition: none !important;
+}
+/* Image zoom on hover */
+.image-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 100%;
+}
+.image-container img {
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.image-container:hover img {
+    transform: scale(1.1);
+}
+.chapter-link {
+    transition: transform 0.3s ease-in-out;
+}
+.chapter-link:hover {
+    transform: translateY(-5px);
+}
