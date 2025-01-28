@@ -6,13 +6,12 @@ import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
 import FloatingButton from '../../components/FloatingButton';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link'; // Import Next.js Link
 import { BookmarkIcon, EyeIcon } from '@heroicons/react/24/outline'; // Mengimpor ikon bookmark
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { supabase } from '../../lib/supabaseClient';
 
 
 // Fungsi untuk mengambil data statis dari file MDX
@@ -84,92 +83,6 @@ export async function getStaticPaths() {
 
 export default function Komik({ comic, chapters = [], error }) {
   const router = useRouter();
-
-  const [views, setViews] = useState(0);
-
-  const fetchViews = async (slug) => {
-    try {
-      const { data, error } = await supabase
-        .from('views')
-        .select('count')
-        .eq('slug', slug)
-        .single();
-
-      if (error) {
-        console.error('Error fetching views:', error);
-        return;
-      }
-
-      setViews(data?.count || 0);
-    } catch (err) {
-      console.error('Error fetching views:', err);
-    }
-  };
-
-  const incrementViews = async (slug) => {
-    try {
-      const { data: existingView, error: fetchError } = await supabase
-        .from('views')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      if (fetchError && fetchError.code !== 'PGRST116') {
-        console.error('Error fetching views:', fetchError);
-        return;
-      }
-
-      if (!existingView) {
-        // Insert jika belum ada
-        const { error: insertError } = await supabase
-          .from('views')
-          .insert([{ slug, count: 1 }]);
-
-        if (insertError) console.error('Error inserting views:', insertError);
-      } else {
-        // Update jika sudah ada
-        const { error: updateError } = await supabase
-          .from('views')
-          .update({ count: existingView.count + 1 })
-          .eq('slug', slug);
-
-        if (updateError) console.error('Error updating views:', updateError);
-      }
-    } catch (err) {
-      console.error('Error incrementing views:', err);
-    }
-  };
-
-  useEffect(() => {
-    const { slug } = router.query;
-    if (!slug) return;
-
-    // Fetch current views
-    fetchViews(slug);
-
-    // Increment views
-    incrementViews(slug);
-
-    // Subscribe to realtime updates
-    const channel = supabase
-      .channel('realtime:views') // Buat channel untuk tabel views
-      .on(
-        'postgres_changes',
-        { event: 'UPDATE', schema: 'public', table: 'views', filter: `slug=eq.${slug}` },
-        (payload) => {
-          setViews(payload.new.count); // Update jumlah views saat ada perubahan
-        }
-      )
-      .subscribe();
-
-    // Cleanup subscription on unmount
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [router.query.slug]);
-
-
-  /////
   const [isBookmarked, setIsBookmarked] = useState(false); // UseState moved to component
 
   const handleBookmarkClick = () => {
@@ -263,7 +176,7 @@ export default function Komik({ comic, chapters = [], error }) {
                 {/* Views Section */}
                 <div className="absolute bottom-2 bg-gray-700/50 rounded-r-lg px-3 py-1 flex items-center space-x-2">
                   <EyeIcon className="h-6 w-6 text-white" /> {/* Icon Mata */}
-                  <span className="text-lg text-white">{views.toLocaleString()}</span> {/* Jumlah Views */}
+                  <span className="text-lg text-white">1.1k</span> {/* Jumlah Views */}
                 </div>
               </div>
 

@@ -116,7 +116,7 @@ export default function ListContent({ comics }) {
                 </Link>
                 <Link
                   href={`/komik/${slug}`}
-                  className="text-[15px] font-bold mt-4 title-hover"
+                  className="text-[16px] font-bold mt-4 title-hover"
                 >
                   <div className="text-center w-full">
                     <span className="block">

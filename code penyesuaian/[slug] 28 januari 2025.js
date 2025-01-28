@@ -6,13 +6,12 @@ import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
 import FloatingButton from '../../components/FloatingButton';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link'; // Import Next.js Link
-import { BookmarkIcon, EyeIcon } from '@heroicons/react/24/outline'; // Mengimpor ikon bookmark
+import { BookmarkIcon } from '@heroicons/react/24/outline'; // Mengimpor ikon bookmark
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { supabase } from '../../lib/supabaseClient';
 
 
 // Fungsi untuk mengambil data statis dari file MDX
@@ -84,92 +83,6 @@ export async function getStaticPaths() {
 
 export default function Komik({ comic, chapters = [], error }) {
   const router = useRouter();
-
-  const [views, setViews] = useState(0);
-
-  const fetchViews = async (slug) => {
-    try {
-      const { data, error } = await supabase
-        .from('views')
-        .select('count')
-        .eq('slug', slug)
-        .single();
-
-      if (error) {
-        console.error('Error fetching views:', error);
-        return;
-      }
-
-      setViews(data?.count || 0);
-    } catch (err) {
-      console.error('Error fetching views:', err);
-    }
-  };
-
-  const incrementViews = async (slug) => {
-    try {
-      const { data: existingView, error: fetchError } = await supabase
-        .from('views')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      if (fetchError && fetchError.code !== 'PGRST116') {
-        console.error('Error fetching views:', fetchError);
-        return;
-      }
-
-      if (!existingView) {
-        // Insert jika belum ada
-        const { error: insertError } = await supabase
-          .from('views')
-          .insert([{ slug, count: 1 }]);
-
-        if (insertError) console.error('Error inserting views:', insertError);
-      } else {
-        // Update jika sudah ada
-        const { error: updateError } = await supabase
-          .from('views')
-          .update({ count: existingView.count + 1 })
-          .eq('slug', slug);
-
-        if (updateError) console.error('Error updating views:', updateError);
-      }
-    } catch (err) {
-      console.error('Error incrementing views:', err);
-    }
-  };
-
-  useEffect(() => {
-    const { slug } = router.query;
-    if (!slug) return;
-
-    // Fetch current views
-    fetchViews(slug);
-
-    // Increment views
-    incrementViews(slug);
-
-    // Subscribe to realtime updates
-    const channel = supabase
-      .channel('realtime:views') // Buat channel untuk tabel views
-      .on(
-        'postgres_changes',
-        { event: 'UPDATE', schema: 'public', table: 'views', filter: `slug=eq.${slug}` },
-        (payload) => {
-          setViews(payload.new.count); // Update jumlah views saat ada perubahan
-        }
-      )
-      .subscribe();
-
-    // Cleanup subscription on unmount
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [router.query.slug]);
-
-
-  /////
   const [isBookmarked, setIsBookmarked] = useState(false); // UseState moved to component
 
   const handleBookmarkClick = () => {
@@ -199,17 +112,17 @@ export default function Komik({ comic, chapters = [], error }) {
 
 
   // Fungsi untuk menampilkan tanggal statis dalam format yang diinginkan
-  const formatCreatedDate = (date) => {
-    const validDate = new Date(date);
+const formatCreatedDate = (date) => {
+  const validDate = new Date(date);
 
-    // Cek apakah tanggal valid
-    if (isNaN(validDate.getTime())) {
-      // Jika tanggal tidak valid, gunakan tanggal default
-      return format(new Date('2025-01-25'), 'MMMM d, yyyy', { locale: id }); // Format: Januari 25, 2025
-    }
+  // Cek apakah tanggal valid
+  if (isNaN(validDate.getTime())) {
+    // Jika tanggal tidak valid, gunakan tanggal default
+    return format(new Date('2025-01-25'), 'MMMM d, yyyy', { locale: id }); // Format: Januari 25, 2025
+  }
 
-    return format(validDate, 'MMMM d, yyyy', { locale: id }); // Format: Januari 28, 2025
-  };
+  return format(validDate, 'MMMM d, yyyy', { locale: id }); // Format: Januari 28, 2025
+};
 
 
 
@@ -240,33 +153,13 @@ export default function Komik({ comic, chapters = [], error }) {
         <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
           <div className="flex flex-col md:flex-row items-center md:items-start">
             <div className="md:w-1/3 text-center md:text-left">
-              <div className="relative">
-                {/* Gambar */}
-                <div className="image-container">
-                  <img
-                    alt={comic.title} // Gunakan title untuk alt image
-                    className="rounded-lg w-full h-full object-cover"
-                    src={comic.image} // Gunakan URL gambar dari frontmatter
-                  />
-                </div>
-
-                {/* Tombol Bookmark */}
-                <div className="absolute top-2 right-2">
-                  <button
-                    id="bookmarkButton"
-                    className={`text-3xl ${isBookmarked ? 'bg-yellow-400' : 'bg-gray-400'} text-white focus:outline-none p-1 rounded-full shadow-md`}
-                    onClick={handleBookmarkClick}
-                  >
-                    <BookmarkIcon className="h-8 w-8" />
-                  </button>
-                </div>
-                {/* Views Section */}
-                <div className="absolute bottom-2 bg-gray-700/50 rounded-r-lg px-3 py-1 flex items-center space-x-2">
-                  <EyeIcon className="h-6 w-6 text-white" /> {/* Icon Mata */}
-                  <span className="text-lg text-white">{views.toLocaleString()}</span> {/* Jumlah Views */}
-                </div>
+              <div className="image-container">
+                <img
+                  alt={comic.title} // Gunakan title untuk alt image
+                  className="rounded-lg w-full h-full object-cover"
+                  src={comic.image} // Gunakan URL gambar dari frontmatter
+                />
               </div>
-
             </div>
             <div className="md:w-2/3 md:pl-6 text-center md:text-left">
               <h2 className="text-xl font-bold mb-4 mt-4">{comic.title}</h2>
@@ -277,6 +170,10 @@ export default function Komik({ comic, chapters = [], error }) {
                     <tr>
                       <td className="font-bold py-2 text-left">Author</td>
                       <td className="py-2 text-left"> : <span className="ml-2">{comic.author}</span></td>
+                    </tr>
+                    <tr>
+                      <td className="font-bold py-2 text-left">Genre</td>
+                      <td className="py-2 text-left"> : <span className="ml-2">{comic.genre}</span></td>
                     </tr>
                     <tr>
                       <td className="font-bold py-2 text-left">Tipe</td>
@@ -292,6 +189,22 @@ export default function Komik({ comic, chapters = [], error }) {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <div className="flex items-center justify-center md:justify-start mt-4 space-x-4">
+                <div className="bg-gray-700 p-2 rounded-lg flex items-center space-x-2">
+                  <button
+                    id="bookmarkButton"
+                    className={`text-3xl ${isBookmarked ? 'bg-yellow-400' : 'bg-gray-400'} text-white focus:outline-none p-1 rounded-full`}
+                    onClick={handleBookmarkClick}
+                  >
+                    <BookmarkIcon className="h-6 w-6" />
+                  </button>
+                  <span className="text-lg">Bookmark</span>
+                </div>
+
+                <div className="bg-gray-700 p-2 rounded-lg flex items-center space-x-2">
+                  <span className="text-lg">Views : 1.1K</span>
+                </div>
               </div>
             </div>
           </div>

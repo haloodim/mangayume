@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* styles/globals.css */
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 8px;
@@ -141,7 +147,7 @@
 }
 .image-container img {
     transition: transform 0.3s ease-in-out;
-    height: 100%;
+    height: 388px;
     width: 100%;
     object-fit: cover;
 }

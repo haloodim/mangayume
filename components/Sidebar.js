@@ -31,7 +31,7 @@ export default function Navbar() {
         {/* Sidebar */}
         <div
           id="mySidenav"
-          className={`fixed top-0 right-0 h-full bg-gray-900 text-white transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`font-semibold fixed top-0 right-0 h-full bg-gray-900 text-white transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
           style={{
             width: '250px',
             zIndex: 1000, // Pastikan z-index tinggi agar elemen berada di atas

@@ -16,7 +16,7 @@ export default function Navbar() {
     <h1 className="text-2xl font-bold ml-2">Mangamas</h1>
   </Link>
         </div>
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 font-semibold">
           <Link href="/" className="hover:text-gray-400">Beranda</Link>
           <Link href="/project" className="hover:text-gray-400">Project</Link>
           <Link href="/list" className="hover:text-gray-400">Daftar Komik</Link>

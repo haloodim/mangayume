@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Titillium Web', 'sans-serif'],  // Menambahkan Titillium Web di sini
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
