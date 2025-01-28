@@ -10,7 +10,7 @@ import matter from 'gray-matter';
 
 export default function Project({ comics }) {
   return (
-    <div className="bg-gray-900 text-white font-sans">
+    <div className="bg-gray-900 min-h-screen text-white font-sans">
       <Navbar />
       <Sidebar />
       <ProjectContent comics={comics} />

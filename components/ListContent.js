@@ -64,17 +64,26 @@ export default function ListContent({ comics }) {
     }
   };
 
+
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
+  
+      // Scroll ke atas dengan smooth
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+  
       // Update URL dengan query parameter ?page={page}
       router.push(`?page=${page}`, undefined, { shallow: true });
     }
   };
 
+
   return (
     <main className="container mx-auto p-4 min-h-screen">
-      <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
+      <div className="bg-gray-800 min-h-screen p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
         <div className="flex items-center space-x-2 mb-4">
           <BookOpenIcon className="h-5 w-5 text-white" />
           <ChevronRightIcon className="h-3 w-3 text-white" />
@@ -122,7 +131,9 @@ export default function ListContent({ comics }) {
           })}
         </div>
 
-        {/* Pagination */}
+      </div>
+
+          {/* Pagination */}
         <div className="col-span-full flex justify-center mt-4">
           <nav className="inline-flex rounded-md shadow">
             <button
@@ -150,7 +161,7 @@ export default function ListContent({ comics }) {
             </button>
           </nav>
         </div>
-      </div>
+
     </main>
   );
 }
