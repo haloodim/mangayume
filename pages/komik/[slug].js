@@ -85,8 +85,8 @@ export async function getStaticPaths() {
 export default function Komik({ comic, chapters = [], error }) {
   const router = useRouter();
 
+  //Fungsi view eyeicon dengan supabase//
   const [views, setViews] = useState(0);
-
   const fetchViews = async (slug) => {
     try {
       const { data, error } = await supabase
@@ -167,9 +167,10 @@ export default function Komik({ comic, chapters = [], error }) {
       supabase.removeChannel(channel);
     };
   }, [router.query.slug]);
+  ///end of function///
 
 
-  /////
+  ///// bookmarked berwarna ///
   const [isBookmarked, setIsBookmarked] = useState(false); // UseState moved to component
 
   const handleBookmarkClick = () => {
@@ -190,12 +191,14 @@ export default function Komik({ comic, chapters = [], error }) {
   if (!comic || !comic.title) {
     return <div>Error: Data tidak lengkap</div>;
   }
+  ////end of function bokmarked////
 
 
   // Fungsi untuk membuat huruf pertama menjadi besar
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+  ///end of function////
 
 
   // Fungsi untuk menampilkan tanggal statis dalam format yang diinginkan
@@ -210,9 +213,10 @@ export default function Komik({ comic, chapters = [], error }) {
 
     return format(validDate, 'MMMM d, yyyy', { locale: id }); // Format: Januari 28, 2025
   };
+  ////end of function///////
 
 
-
+  ////function pencarian list chapter /////
   const [searchQuery, setSearchQuery] = useState(""); // State untuk menyimpan query pencarian
 
   const handleSearchChange = (e) => {
@@ -230,6 +234,7 @@ export default function Komik({ comic, chapters = [], error }) {
     const chapterNumber = chapter.name.toLowerCase();
     return chapterNumber.includes(searchTerm);
   });
+  ///end of function/////
 
 
   return (
@@ -260,11 +265,13 @@ export default function Komik({ comic, chapters = [], error }) {
                     <BookmarkIcon className="h-8 w-8" />
                   </button>
                 </div>
+
                 {/* Views Section */}
                 <div className="absolute bottom-2 bg-gray-700/50 rounded-r-lg px-3 py-1 flex items-center space-x-2">
                   <EyeIcon className="h-6 w-6 text-white" /> {/* Icon Mata */}
                   <span className="text-lg text-white">{views.toLocaleString()}</span> {/* Jumlah Views */}
                 </div>
+
               </div>
 
             </div>
@@ -299,17 +306,22 @@ export default function Komik({ comic, chapters = [], error }) {
           <div className="mt-6">
 
             <div className="flex justify-between items-center bg-gray-700 p-4 rounded-lg">
-              {/* First Chapter */}
+              {/* First Chapter diperbaiki */}
               <div className="text-center">
                 <span className="text-sm text-gray-400">First Chapter</span>
-                {chapters.length > 0 && (
+                {chapters.length > 0 ? (
                   <Link href={chapters[chapters.length - 1].href}>
                     <span className="chapter-link mt-2 block text-lg font-bold hover:text-blue-400">
                       {capitalizeFirstLetter(chapters[chapters.length - 1].name)}
                     </span>
                   </Link>
+                ) : (
+                  <span className="chapter-link mt-2 block text-lg font-bold text-gray-500">
+                    Belum Ada
+                  </span>
                 )}
               </div>
+
 
               {/* New Chapter */}
               <div className="text-center">
@@ -342,6 +354,7 @@ export default function Komik({ comic, chapters = [], error }) {
               <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute top-1/2 right-2 transform -translate-y-1/2" />
             </div>
 
+
             <div className="bg-gray-700 p-4 rounded-lg mt-2 overflow-y-auto" style={{ maxHeight: '300px' }}>
               {filteredChapters.length > 0 ? (
                 filteredChapters.map((chapter, index) => (
@@ -361,7 +374,6 @@ export default function Komik({ comic, chapters = [], error }) {
                 <p className="text-gray-400 text-center">Tidak ada chapter yang sesuai</p>
               )}
             </div>
-
 
           </div>
         </div>
