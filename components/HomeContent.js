@@ -17,26 +17,30 @@ const RelativeTimeDisplay = ({ time }) => {
   useEffect(() => {
     const calculateRelativeTime = () => {
       const now = new Date(); // Waktu saat ini
-      const timeDate = new Date(time); // Coba parsing waktu langsung ke Date
-    
+      const timeDate = new Date(time); // Parsing waktu yang diterima ke Date
+      
       console.log("Current time (now):", now);  // Waktu sekarang
       console.log("Time received (time):", timeDate);  // Waktu yang diterima
+      
+      // Konversi waktu yang diterima ke zona waktu lokal
+      const localTimeDate = new Date(timeDate.getTime() + timeDate.getTimezoneOffset() * 60000);
     
       // Cek apakah waktu yang diterima valid
-      if (isNaN(timeDate.getTime())) {
+      if (isNaN(localTimeDate.getTime())) {
         setFormattedTime("Waktu tidak valid");
         console.log("Invalid time received:", time);
         return;
       }
     
       // Hitung selisih waktu dalam detik
-      const diffInSeconds = Math.floor((now - timeDate) / 1000); 
+      const diffInSeconds = Math.floor((now - localTimeDate) / 1000); 
     
       console.log("Time difference in seconds:", diffInSeconds);
     
       // Jika waktu yang diterima lebih besar dari waktu sekarang, tampilkan "Waktu tidak valid"
       if (diffInSeconds < 0) {
         setFormattedTime("Waktu tidak valid");
+        console.log("The received time is in the future. Time difference:", diffInSeconds);
         return;
       }
     
@@ -62,6 +66,8 @@ const RelativeTimeDisplay = ({ time }) => {
         setFormattedTime(`${seconds} detik lalu`);
       }
     };
+    
+    
             
 
     calculateRelativeTime(); // Panggil sekali langsung

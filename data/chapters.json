@@ -16,7 +16,12 @@
             "name": "chapter-03",
             "number": 3,
             "createdAt": "2025-01-29T15:20:00Z"
-          }
+        },
+        {
+          "name": "chapter-04",
+          "number": 4,
+          "createdAt": "2025-01-29T15:58:00Z"
+        }
       ]
     }
   ]
