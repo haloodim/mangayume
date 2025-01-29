@@ -20,10 +20,13 @@ export default function Home({ comics }) {
 }
 
 
-
 export async function getStaticProps() {
   const comicsDir = path.join(process.cwd(), 'content');
   const folders = fs.readdirSync(comicsDir);
+
+  // Baca data chapter dari file JSON
+  const chaptersFilePath = path.join(process.cwd(), 'data', 'chapters.json');
+  const chaptersData = JSON.parse(fs.readFileSync(chaptersFilePath, 'utf-8'));
 
   const comics = folders
     .map((folder) => {
@@ -35,24 +38,15 @@ export async function getStaticProps() {
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       const { data } = matter(fileContent);
 
-      // Ambil waktu dari metadata dan ubah menjadi ISO string
-      const createdAt = data.createdAt ? new Date(data.createdAt).toISOString() : new Date().toISOString();
+      // Temukan data chapter yang sesuai dengan slug
+      const comicChapters = chaptersData.find(comic => comic.slug === folder)?.chapters || [];
 
-      const chapters = fs
-        .readdirSync(comicPath)
-        .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx'))
-        .map((file) => {
-          const chapterPath = path.join(comicPath, file);
-          const chapterStats = fs.statSync(chapterPath);
-
-          return {
-            name: file.replace('.mdx', ''),
-            number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
-            // Ubah waktu menjadi ISO string untuk diserialisasi
-            time: chapterStats.mtime.toISOString(),
-            createdAt: chapterStats.mtime.toISOString(), // Ubah menjadi ISO string
-          };
-        })
+      const chapters = comicChapters
+        .map((chapter) => ({
+          name: chapter.name,
+          number: chapter.number,
+          createdAt: chapter.createdAt, // Gunakan createdAt dari data JSON
+        }))
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Urutkan berdasarkan createdAt
 
       if (chapters.length === 0) return null;
@@ -60,7 +54,7 @@ export async function getStaticProps() {
       return {
         ...data,
         slug: folder,
-        creationTime: createdAt, // Gunakan ISO string
+        creationTime: new Date(data.createdAt).toLocaleDateString('id-ID'),
         chapters: chapters.slice(0, 2), // Ambil dua chapter terbaru
       };
     })
@@ -71,6 +65,7 @@ export async function getStaticProps() {
     props: { comics },
   };
 }
+
 
 
 

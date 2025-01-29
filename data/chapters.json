@@ -1,0 +1,23 @@
+[
+    {
+      "slug": "29-to-jk-indonesia",
+      "chapters": [
+        {
+          "name": "chapter-01",
+          "number": 1,
+          "createdAt": "2025-01-29T15:09:00Z"
+        },
+        {
+          "name": "chapter-02",
+          "number": 2,
+          "createdAt": "2025-01-29T15:10:00Z"
+        },
+        {
+            "name": "chapter-03",
+            "number": 3,
+            "createdAt": "2025-01-29T15:20:00Z"
+          }
+      ]
+    }
+  ]
+  
