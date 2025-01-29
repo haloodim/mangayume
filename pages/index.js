@@ -34,56 +34,45 @@ export async function getStaticProps() {
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       const { data } = matter(fileContent);
 
-      const fileStats = fs.statSync(filePath);
-      const creationTime = fileStats.mtime;
-
-      // Fungsi untuk format tanggal tanpa waktu
-      const formatDate = (date) => {
-        return new Date(date).toLocaleDateString('id-ID', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        });
-      };
+      // Ambil waktu dari metadata
+      const createdAt = data.createdAt ? new Date(data.createdAt) : new Date();
 
       const chapters = fs
-        .readdirSync(comicPath)
-        .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx'))
-        .map((file) => {
-          const chapterPath = path.join(comicPath, file);
-          const chapterStats = fs.statSync(chapterPath);
+  .readdirSync(comicPath)
+  .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx'))
+  .map((file) => {
+    const chapterPath = path.join(comicPath, file);
+    const chapterStats = fs.statSync(chapterPath);
 
-          return {
-            name: file.replace('.mdx', ''),
-            number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
-            time: chapterStats.mtime.toISOString(), // Ubah menjadi ISO string
-          };
-        })
-        .sort((a, b) => new Date(b.time) - new Date(a.time)); // Urutkan berdasarkan waktu chapter terbaru (terbaru di atas)
+    return {
+      name: file.replace('.mdx', ''),
+      number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
+      time: chapterStats.mtime.toISOString(), // Ubah menjadi ISO string untuk diserialisasi
+      createdAt: chapterStats.mtime.toISOString(), // Ubah menjadi ISO string untuk diserialisasi
+    };
+  })
+  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Urutkan berdasarkan createdAt
+
+
+
 
       if (chapters.length === 0) return null;
-
-      const isNew = new Date(chapters[0].time).getTime() > creationTime.getTime();
 
       return {
         ...data,
         slug: folder,
-        creationTime: formatDate(creationTime),
-        chapters: chapters.slice(0, 2), // Ambil hanya 2 chapter terbaru
-        isNew,
+        creationTime: createdAt.toLocaleDateString('id-ID'),
+        chapters: chapters.slice(0, 2), // Ambil dua chapter terbaru
       };
     })
     .filter(Boolean)
-    .sort((a, b) => {
-      if (b.isNew && !a.isNew) return 1;
-      if (!b.isNew && a.isNew) return -1;
-      return new Date(b.chapters[0]?.time) - new Date(a.chapters[0]?.time); // Urutkan berdasarkan waktu chapter terbaru
-    });
+    .sort((a, b) => new Date(b.chapters[0]?.time) - new Date(a.chapters[0]?.time)); // Urutkan berdasarkan waktu chapter terbaru
 
   return {
     props: { comics },
   };
 }
+
 
 
 
