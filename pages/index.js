@@ -19,6 +19,7 @@ export default function Home({ comics }) {
   )
 }
 
+
 export async function getStaticProps() {
   const comicsDir = path.join(process.cwd(), 'content');
   const folders = fs.readdirSync(comicsDir);
@@ -38,7 +39,6 @@ export async function getStaticProps() {
 
       // Fungsi untuk format tanggal tanpa waktu
       const formatDate = (date) => {
-        // Gunakan hanya bagian tanggal tanpa waktu menggunakan toLocaleDateString
         return new Date(date).toLocaleDateString('id-ID', {
           year: 'numeric',
           month: 'long',
@@ -56,11 +56,10 @@ export async function getStaticProps() {
           return {
             name: file.replace('.mdx', ''),
             number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
-            // Format tanggal tanpa jam
-            time: formatDate(chapterStats.mtime),
+            time: chapterStats.mtime.toISOString(), // Ubah menjadi ISO string
           };
         })
-        .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter
+        .sort((a, b) => new Date(b.time) - new Date(a.time)); // Urutkan berdasarkan waktu chapter terbaru (terbaru di atas)
 
       if (chapters.length === 0) return null;
 
@@ -69,8 +68,8 @@ export async function getStaticProps() {
       return {
         ...data,
         slug: folder,
-        creationTime: formatDate(creationTime), // Format tanggal pembuatan
-        chapters: chapters.slice(0, 2), // Ambil dua chapter terbaru
+        creationTime: formatDate(creationTime),
+        chapters: chapters.slice(0, 2), // Ambil hanya 2 chapter terbaru
         isNew,
       };
     })
@@ -78,15 +77,13 @@ export async function getStaticProps() {
     .sort((a, b) => {
       if (b.isNew && !a.isNew) return 1;
       if (!b.isNew && a.isNew) return -1;
-      return new Date(b.chapters[0]?.time) - new Date(a.chapters[0]?.time);
+      return new Date(b.chapters[0]?.time) - new Date(a.chapters[0]?.time); // Urutkan berdasarkan waktu chapter terbaru
     });
 
   return {
     props: { comics },
   };
 }
-
-
 
 
 

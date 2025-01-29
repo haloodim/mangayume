@@ -10,6 +10,47 @@ const generateSlug = (folderName) => {
     .replace(/[^\w-]+/g, '');
 };
 
+
+const RelativeTimeDisplay = ({ time }) => {
+  const [formattedTime, setFormattedTime] = useState("");
+
+  useEffect(() => {
+    const calculateRelativeTime = () => {
+      const now = new Date();
+      const timeDate = new Date(time); // Ubah string ISO kembali menjadi objek Date
+      const diffInSeconds = Math.floor((now - timeDate) / 1000); // Selisih waktu dalam detik
+
+      const days = Math.floor(diffInSeconds / (60 * 60 * 24)); // Hari
+      const hours = Math.floor((diffInSeconds % (60 * 60 * 24)) / (60 * 60)); // Jam
+      const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60); // Menit
+      const seconds = diffInSeconds % 60; // Detik
+
+      if (days >= 365) {
+        setFormattedTime(`${Math.floor(days / 365)} tahun lalu`);
+      } else if (days >= 30) {
+        setFormattedTime(`${Math.floor(days / 30)} bulan lalu`);
+      } else if (days >= 7) {
+        setFormattedTime(`${Math.floor(days / 7)} minggu lalu`);
+      } else if (days >= 1) {
+        setFormattedTime(`${days} hari lalu`);
+      } else if (hours >= 1) {
+        setFormattedTime(`${hours} jam lalu`);
+      } else if (minutes >= 1) {
+        setFormattedTime(`${minutes} menit lalu`);
+      } else {
+        setFormattedTime(`${seconds} detik lalu`);
+      }
+    };
+
+    calculateRelativeTime();
+    const intervalId = setInterval(calculateRelativeTime, 1000); // Update setiap detik
+
+    return () => clearInterval(intervalId);
+  }, [time]);
+
+  return <span>{formattedTime}</span>;
+};
+
 export default function HomeContent({ comics }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
@@ -81,6 +122,10 @@ export default function HomeContent({ comics }) {
   };
 
 
+  ///////////////////////////
+
+
+
   return (
     <main className="container mx-auto p-4 min-h-screen">
       <div className="bg-gray-800 min-h-screen p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
@@ -126,7 +171,7 @@ export default function HomeContent({ comics }) {
                     </span>
                   </div>
                 </Link>
-                {comic.chapters && Array.isArray(comic.chapters) && comic.chapters.length > 0 ? (
+                {comic.chapters && comic.chapters.length > 0 ? (
                   comic.chapters.map((chapter, index) => (
                     <Link
                       key={index}
@@ -134,12 +179,14 @@ export default function HomeContent({ comics }) {
                       className="mt-2 border border-white text-white py-1 px-2 rounded-full text-[13px] w-full flex justify-between hover:border-blue-500 hover:text-blue-500"
                     >
                       <span>Ch. {chapter.number}</span>
-                      <span>{new Date(comic.chapters[0].time).toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                      <RelativeTimeDisplay time={chapter.time} /> {/* Menampilkan waktu relatif */}
                     </Link>
                   ))
                 ) : (
-                  <p>No chapters available.</p> // Tampilkan pesan jika tidak ada chapter
+                  <p>No chapters available.</p>
                 )}
+
+
 
 
 
