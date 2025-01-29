@@ -7,7 +7,7 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export default function Home({ comics }) {
+export default function Home({comics}) {
   return (
     <div className="bg-gray-900 text-white font-sans">
       <Navbar />
@@ -38,9 +38,8 @@ export async function getStaticProps() {
 
       // Fungsi untuk format tanggal tanpa waktu
       const formatDate = (date) => {
-        // Gunakan hanya bagian tanggal tanpa waktu menggunakan toLocaleDateString
         return new Date(date).toLocaleDateString('id-ID', {
-          year: 'numeric',
+          year: '2-digit',
           month: 'long',
           day: 'numeric',
         });
@@ -49,18 +48,13 @@ export async function getStaticProps() {
       const chapters = fs
         .readdirSync(comicPath)
         .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx'))
-        .map((file) => {
-          const chapterPath = path.join(comicPath, file);
-          const chapterStats = fs.statSync(chapterPath);
-
-          return {
-            name: file.replace('.mdx', ''),
-            number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
-            // Format tanggal tanpa jam
-            time: formatDate(chapterStats.mtime),
-          };
-        })
-        .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter
+        .map((file) => ({
+          name: file.replace('.mdx', ''),
+          number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
+          // Tanpa waktu di SSR
+          time: '', 
+        }))
+        .sort((a, b) => b.number - a.number);
 
       if (chapters.length === 0) return null;
 
@@ -69,8 +63,8 @@ export async function getStaticProps() {
       return {
         ...data,
         slug: folder,
-        creationTime: formatDate(creationTime), // Format tanggal pembuatan
-        chapters: chapters.slice(0, 2), // Ambil dua chapter terbaru
+        creationTime: formatDate(creationTime),
+        chapters: chapters.slice(0, 2),
         isNew,
       };
     })
@@ -85,6 +79,7 @@ export async function getStaticProps() {
     props: { comics },
   };
 }
+
 
 
 

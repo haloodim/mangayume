@@ -7,7 +7,7 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export default function Home({ comics }) {
+export default function Home({comics}) {
   return (
     <div className="bg-gray-900 text-white font-sans">
       <Navbar />
@@ -57,7 +57,7 @@ export async function getStaticProps() {
             name: file.replace('.mdx', ''),
             number: parseInt(file.match(/\d+/)?.[0] || 0, 10),
             // Format tanggal tanpa jam
-            time: formatDate(chapterStats.mtime),
+            time: formatDate(chapterStats.mtime), 
           };
         })
         .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter

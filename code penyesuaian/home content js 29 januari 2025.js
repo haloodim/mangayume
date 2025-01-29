@@ -126,23 +126,6 @@ export default function HomeContent({ comics }) {
                     </span>
                   </div>
                 </Link>
-                {comic.chapters && Array.isArray(comic.chapters) && comic.chapters.length > 0 ? (
-                  comic.chapters.map((chapter, index) => (
-                    <Link
-                      key={index}
-                      href={`/komik/${comic.slug}/${chapter.name}`}
-                      className="mt-2 border border-white text-white py-1 px-2 rounded-full text-[13px] w-full flex justify-between hover:border-blue-500 hover:text-blue-500"
-                    >
-                      <span>Ch. {chapter.number}</span>
-                      <span>{new Date(comic.chapters[0].time).toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                    </Link>
-                  ))
-                ) : (
-                  <p>No chapters available.</p> // Tampilkan pesan jika tidak ada chapter
-                )}
-
-
-
               </div>
             );
           })}
