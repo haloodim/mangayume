@@ -65,10 +65,3 @@ export async function getStaticProps() {
     props: { comics },
   };
 }
-
-
-
-
-
-
-

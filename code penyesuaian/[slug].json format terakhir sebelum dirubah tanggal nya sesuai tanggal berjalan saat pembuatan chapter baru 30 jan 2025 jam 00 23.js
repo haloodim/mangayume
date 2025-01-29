@@ -19,7 +19,6 @@ import { supabase } from '../../lib/supabaseClient';
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const comicDir = path.join(process.cwd(), 'content', slug);
-  const currentDate = format(new Date(), 'dd-MM-yyyy');
 
   try {
     if (!fs.existsSync(comicDir)) {
@@ -30,16 +29,13 @@ export async function getStaticProps({ params }) {
 
     const chapters = files
       .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx')) // Filter file chapter
-      .map((file) => {
-        const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
-        return {
-          href: `/komik/${slug}/${file.replace('.mdx', '')}`, // Buat link dinamis
-          name: file.replace('.mdx', '').replace('-', ' '), // Format nama chapter
-          number: chapterNumber, // Ambil nomor chapter
-          date: currentDate, // Tambahkan properti tanggal dengan tanggal bulan dan tahun berjalan
-        };
-      })
+      .map((file) => ({
+        href: `/komik/${slug}/${file.replace('.mdx', '')}`, // Buat link dinamis
+        name: file.replace('.mdx', '').replace('-', ' '), // Format nama chapter
+        number: parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0, // Ambil nomor chapter
+      }))
       .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter (terbaru di atas)
+
 
     // Tandai chapter terbaru
     if (chapters.length > 0) {
@@ -68,7 +64,6 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
 
 
 // Fungsi untuk mengambil paths dari folder konten
@@ -208,17 +203,15 @@ export default function Komik({ comic, chapters = [], error }) {
 
   // Fungsi untuk menampilkan tanggal statis dalam format yang diinginkan
   const formatCreatedDate = (date) => {
-    // Jika tidak ada tanggal (undefined/null/empty), gunakan tanggal hari ini
-    if (!date) {
-      return format(new Date(), 'MMMM d, yyyy', { locale: id }); // Misal: Januari 30, 2025
-    }
-  
     const validDate = new Date(date);
-  
-    // Jika tanggal valid, gunakan yang ada, kalau tidak valid, fallback ke tanggal hari ini
-    return isNaN(validDate.getTime())
-      ? format(new Date(), 'MMMM d, yyyy', { locale: id })
-      : format(validDate, 'MMMM d, yyyy', { locale: id });
+
+    // Cek apakah tanggal valid
+    if (isNaN(validDate.getTime())) {
+      // Jika tanggal tidak valid, gunakan tanggal default
+      return format(new Date('2025-01-25'), 'MMMM d, yyyy', { locale: id }); // Format: Januari 25, 2025
+    }
+
+    return format(validDate, 'MMMM d, yyyy', { locale: id }); // Format: Januari 28, 2025
   };
   ////end of function///////
 

@@ -21,6 +21,11 @@
           "name": "chapter-04",
           "number": 4,
           "createdAt": "2025-01-29T15:58:00Z"
+        },
+        {
+          "name": "chapter-05",
+          "number": 5,
+          "createdAt": "2025-01-30T00:13:00Z"
         }
       ]
     },
@@ -35,7 +40,22 @@
         {
           "name": "chapter-02",
           "number": 2,
-          "createdAt": "2025-01-29T16:02:00Z"
+          "createdAt": "2025-01-29T22:56:00Z"
+        },
+        {
+          "name": "chapter-03",
+          "number": 3,
+          "createdAt": "2025-01-30T00:18:00Z"
+        }
+      ]
+    },
+    {
+      "slug": "shounen-no-abyss-bahasa-indonesia",
+      "chapters": [
+        {
+          "name": "chapter-01",
+          "number": 1,
+          "createdAt": "2025-01-30T00:28:00Z"
         }
       ]
     }
