@@ -26,6 +26,11 @@
           "name": "chapter-05",
           "number": 5,
           "createdAt": "2025-01-30T00:13:00Z"
+        },
+        {
+          "name": "chapter-06",
+          "number": 6,
+          "createdAt": "2025-01-31T09:56:00Z"
         }
       ]
     },
@@ -56,6 +61,16 @@
           "name": "chapter-01",
           "number": 1,
           "createdAt": "2025-01-30T00:28:00Z"
+        }
+      ]
+    },
+    {
+      "slug": "kanojo-okarishimasu-bahasa-indonesia",
+      "chapters": [
+        {
+          "name": "chapter-01",
+          "number": 1,
+          "createdAt": "2025-01-31T09:57:00Z"
         }
       ]
     }

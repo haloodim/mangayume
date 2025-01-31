@@ -63,5 +63,6 @@ export async function getStaticProps() {
 
   return {
     props: { comics },
+    revalidate: 10
   };
 }

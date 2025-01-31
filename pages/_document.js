@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="id">
       <Head>
         {/* Menambahkan link untuk Titillium Web dengan berbagai berat font */}
         <link

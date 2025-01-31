@@ -13,78 +13,8 @@ import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { supabase } from '../../lib/supabaseClient';
+import Head from 'next/head';
 
-
-// Fungsi untuk mengambil data statis dari file MDX
-export async function getStaticProps({ params }) {
-  const { slug } = params;
-  const comicDir = path.join(process.cwd(), 'content', slug);
-  const currentDate = format(new Date(), 'dd-MM-yyyy');
-
-  try {
-    if (!fs.existsSync(comicDir)) {
-      throw new Error('Folder komik tidak ditemukan');
-    }
-
-    const files = fs.readdirSync(comicDir);
-
-    const chapters = files
-      .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx')) // Filter file chapter
-      .map((file) => {
-        const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
-        return {
-          href: `/komik/${slug}/${file.replace('.mdx', '')}`, // Buat link dinamis
-          name: file.replace('.mdx', '').replace('-', ' '), // Format nama chapter
-          number: chapterNumber, // Ambil nomor chapter
-          date: currentDate, // Tambahkan properti tanggal dengan tanggal bulan dan tahun berjalan
-        };
-      })
-      .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter (terbaru di atas)
-
-    // Tandai chapter terbaru
-    if (chapters.length > 0) {
-      chapters[0].isNew = true; // Tandai chapter terbaru dengan properti isNew
-    }
-
-    // Baca file index.mdx
-    const filePath = path.join(comicDir, 'index.mdx');
-    if (!fs.existsSync(filePath)) {
-      throw new Error('File index.mdx tidak ditemukan');
-    }
-
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const { data } = matter(fileContent);
-
-    if (!data || !data.title) {
-      throw new Error('Data tidak lengkap atau tidak ada title');
-    }
-
-    return {
-      props: { comic: data, chapters }, // Kirim data komik dan chapter
-    };
-  } catch (error) {
-    return {
-      props: { error: error.message },
-    };
-  }
-}
-
-
-
-// Fungsi untuk mengambil paths dari folder konten
-export async function getStaticPaths() {
-  const comicsDir = path.join(process.cwd(), 'content');
-  const folders = fs.readdirSync(comicsDir);
-
-  const paths = folders.map((folder) => ({
-    params: { slug: folder }, // Ambil slug dari folder yang ada
-  }));
-
-  return {
-    paths,
-    fallback: true, // Atur fallback ke true untuk loading page jika data tidak tersedia
-  };
-}
 
 
 export default function Komik({ comic, chapters = [], error }) {
@@ -245,6 +175,12 @@ export default function Komik({ comic, chapters = [], error }) {
 
 
   return (
+    <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{comic.title}</title>
+      <meta name="description" content={comic.deskripsi} />
+    </Head>
     <div className="bg-gray-900 text-white font-sans">
       <Navbar />
       <Sidebar />
@@ -389,5 +325,78 @@ export default function Komik({ comic, chapters = [], error }) {
       <Footer />
       <FloatingButton />
     </div>
+    </>
   );
+}
+
+
+// Fungsi untuk mengambil data statis dari file MDX
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  const comicDir = path.join(process.cwd(), 'content', slug);
+  const currentDate = format(new Date(), 'dd-MM-yyyy');
+
+  try {
+    if (!fs.existsSync(comicDir)) {
+      throw new Error('Folder komik tidak ditemukan');
+    }
+
+    const files = fs.readdirSync(comicDir);
+
+    const chapters = files
+      .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx')) // Filter file chapter
+      .map((file) => {
+        const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
+        return {
+          href: `/komik/${slug}/${file.replace('.mdx', '')}`, // Buat link dinamis
+          name: file.replace('.mdx', '').replace('-', ' '), // Format nama chapter
+          number: chapterNumber, // Ambil nomor chapter
+          date: currentDate, // Tambahkan properti tanggal dengan tanggal bulan dan tahun berjalan
+        };
+      })
+      .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter (terbaru di atas)
+
+    // Tandai chapter terbaru
+    if (chapters.length > 0) {
+      chapters[0].isNew = true; // Tandai chapter terbaru dengan properti isNew
+    }
+
+    // Baca file index.mdx
+    const filePath = path.join(comicDir, 'index.mdx');
+    if (!fs.existsSync(filePath)) {
+      throw new Error('File index.mdx tidak ditemukan');
+    }
+
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data } = matter(fileContent);
+
+    if (!data || !data.title) {
+      throw new Error('Data tidak lengkap atau tidak ada title');
+    }
+
+    return {
+      props: { comic: data, chapters }, // Kirim data komik dan chapter
+    };
+  } catch (error) {
+    return {
+      props: { error: error.message },
+    };
+  }
+}
+
+
+
+// Fungsi untuk mengambil paths dari folder konten
+export async function getStaticPaths() {
+  const comicsDir = path.join(process.cwd(), 'content');
+  const folders = fs.readdirSync(comicsDir);
+
+  const paths = folders.map((folder) => ({
+    params: { slug: folder }, // Ambil slug dari folder yang ada
+  }));
+
+  return {
+    paths,
+    fallback: true, // Atur fallback ke true untuk loading page jika data tidak tersedia
+  };
 }
