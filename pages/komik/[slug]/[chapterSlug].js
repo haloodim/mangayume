@@ -106,8 +106,6 @@ export default function Chapter({ chapter, error }) {
             height={props.height || 600}
             layout="responsive"
             loading="lazy"
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JpcHQzMSIgZmlsbD0icmVkIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIj4KPHBhdGggZD0iTTEwMDAgMTAwMCAxMDAwIDB6IiBzdHJva2U9InJlZD0iNzcgMTAgMTAwMCAwIiBzdHJva2UtbGluZWNhcD0ibm9uZSIgLz4KPC9zdmc+Cg=="
             alt={props.alt || "Image"}
           />
         ),
