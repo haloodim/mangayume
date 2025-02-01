@@ -99,26 +99,20 @@ export default function Chapter({ chapter, error }) {
 
 
     const components = {
-        img: (props) => {
-          try {
-            return (
-              <Image
-                {...props}
-                width={props.width || 800}
-                height={props.height || 600}
-                layout="responsive"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,..."
-                alt={props.alt || "Image"}
-              />
-            );
-          } catch (error) {
-            console.error('Error loading image:', error);
-            return <img src={props.src} alt={props.alt || "Image"} />;
-          }
-        },
+        img: (props) => (
+          <Image
+            {...props}
+            width={props.width || 800}
+            height={props.height || 600}
+            layout="responsive"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JpcHQzMSIgZmlsbD0icmVkIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIj4KPHBhdGggZD0iTTEwMDAgMTAwMCAxMDAwIDB6IiBzdHJva2U9InJlZD0iNzcgMTAgMTAwMCAwIiBzdHJva2UtbGluZWNhcD0ibm9uZSIgLz4KPC9zdmc+Cg=="
+            alt={props.alt || "Image"}
+          />
+        ),
       };
+      
 
     return (
         <div className="bg-gray-900 text-white font-sans">
