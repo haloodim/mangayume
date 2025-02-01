@@ -4,6 +4,7 @@ import json
 import customtkinter as ctk
 from tkinter import messagebox
 from datetime import datetime
+import textwrap
 
 
 def create_chapter():
@@ -75,15 +76,17 @@ def create_chapter():
     chapter_path = os.path.join(folder_path, chapter_filename)
 
     # Ambil judul komik dan buat frontmatter untuk file MDX
-    chapter_mdx_content = f"""---
-title: "{komik_title} Chapter {chapter_number} Bahasa Indonesia"
-deskripsi: "Ini adalah chapter {chapter_number} dari komik dengan judul {komik_title}."
----
+    chapter_mdx_content = textwrap.dedent(f"""\
+        ---
+        title: "{komik_title} Chapter {chapter_number} Bahasa Indonesia"
+        deskripsi: "Ini adalah chapter {chapter_number} dari komik dengan judul {komik_title}."
+        ---
 
-"""
-    # Tambahkan gambar ke dalam konten
+    """)
+
+    # Tambahkan gambar ke dalam konten dengan tag <img>
     for index, image_link in enumerate(image_links):
-        chapter_mdx_content += f"![Gambar {index + 1}]({image_link})\n"
+        chapter_mdx_content += f'<img src="{image_link}" alt="{komik_title} Chapter {chapter_number}" loading="lazy" />\n\n'
 
     # Simpan file chapter.mdx
     with open(chapter_path, "w", encoding="utf-8") as f:
