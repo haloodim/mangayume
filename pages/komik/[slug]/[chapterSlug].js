@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { MDXRemote } from 'next-mdx-remote'; // Import MDXRemote untuk render MDX
 import { serialize } from 'next-mdx-remote/serialize'; // Import serialize untuk mengonversi MDX
-import Image from "next/image";
+//import Image from "next/image";
 
 
 // Fungsi untuk mengambil data chapter
@@ -97,7 +97,7 @@ export default function Chapter({ chapter, error }) {
         return <div>Error: Data chapter tidak lengkap</div>;
     }
 
-
+    /*
     const components = {
         img: (props) => (
           <Image
@@ -112,6 +112,7 @@ export default function Chapter({ chapter, error }) {
           />
         ),
       };
+      */
 
     return (
         <div className="bg-gray-900 text-white font-sans">
@@ -144,7 +145,7 @@ export default function Chapter({ chapter, error }) {
                 {/* Galeri Gambar */}
                 <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
                     <center>
-                    <MDXRemote {...chapter.content} components={components} />
+                    <MDXRemote {...chapter.content} />
                     </center>
                 </div>
 
