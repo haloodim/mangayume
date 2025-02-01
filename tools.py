@@ -5,7 +5,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from datetime import datetime
 import textwrap
-
+from fungsi.scrape import scrape_images 
 
 def create_chapter():
     # Ambil data input
@@ -78,7 +78,7 @@ def create_chapter():
     # Ambil judul komik dan buat frontmatter untuk file MDX
     chapter_mdx_content = textwrap.dedent(f"""\
         ---
-        title: "{komik_title} Chapter {chapter_number} Bahasa Indonesia"
+        title: "{komik_title.replace(' Bahasa Indonesia', '')} Chapter {chapter_number} Bahasa Indonesia"
         deskripsi: "Ini adalah chapter {chapter_number} dari komik dengan judul {komik_title}."
         ---
 
@@ -102,6 +102,7 @@ def create_chapter():
     entry_chapter_name.pack_forget()
     text_area_image_link.pack_forget()
     btn_create_chapter.pack_forget()
+    btn_scrape_link.pack_forget()
 
     # Menampilkan pesan atau tombol lain jika diperlukan setelah chapter selesai dibuat
     messagebox.showinfo("Sukses", "Chapter baru berhasil dibuat! Anda dapat membuat chapter baru lagi.")
@@ -237,6 +238,83 @@ def show_chapter_form():
     global btn_create_chapter  # Menjadikan tombol sebagai global untuk akses di seluruh fungsi
     btn_create_chapter = ctk.CTkButton(tab_create_chapter, text="Buat Chapter Baru", command=create_chapter)  # Fungsi create_chapter dihubungkan dengan tombol
     btn_create_chapter.pack(pady=10)
+
+    # Tombol Scrape Link
+    global btn_scrape_link
+    btn_scrape_link = ctk.CTkButton(tab_create_chapter, text="Scrape Link", command=open_scrape_window)
+    btn_scrape_link.pack(pady=10)
+
+
+# Definisikan entry_url secara global
+global entry_url
+scrape_window = None 
+
+def open_scrape_window():
+    global entry_url, scrape_window 
+    # Membuka jendela baru untuk scraping menggunakan CTkToplevel
+    scrape_window = ctk.CTkToplevel()
+    scrape_window.title("Scrape Link")
+    
+    # Menentukan ukuran jendela baru
+    window_width = 400
+    window_height = 300
+    
+    # Mendapatkan posisi tengah layar
+    screen_width = scrape_window.winfo_screenwidth()
+    screen_height = scrape_window.winfo_screenheight()
+    
+    # Menghitung posisi x dan y untuk menampilkan di tengah
+    position_top = int(screen_height / 2 - window_height / 2)
+    position_left = int(screen_width / 2 - window_width / 2)
+
+    # Menentukan ukuran dan posisi jendela
+    scrape_window.geometry(f'{window_width}x{window_height}+{position_left}+{position_top}')
+
+    scrape_window.resizable(False, False)  # Menonaktifkan resizing
+    scrape_window.grab_set()  # Mencegah interaksi dengan jendela utama
+    scrape_window.focus_set()  # Mengatur fokus ke jendela pop-up
+    scrape_window.lift()  # Membuat jendela tetap berada di depan
+    
+    # Menambahkan widget pada jendela scrape_window
+    label = ctk.CTkLabel(scrape_window, text="Masukkan URL untuk Scrape:")
+    label.pack(pady=10)
+    
+    # Entry untuk URL komik
+    entry_url = ctk.CTkEntry(scrape_window, placeholder_text="URL Komik")
+    entry_url.pack(pady=10, padx=20, fill='x')
+
+    # Tombol Scrape
+    btn_scrape = ctk.CTkButton(scrape_window, text="Scrape Link", command=scrape_link)
+    btn_scrape.pack(pady=10)
+
+# Fungsi untuk melakukan scraping dan menampilkan hasilnya
+def scrape_link():
+    global entry_url, scrape_window  # Menandakan entry_url dan scrape_window sebagai global
+    url = entry_url.get()  # Ambil URL dari entry
+
+    # Panggil fungsi scrape_images dari file scrape.py
+    image_links = scrape_images(url)
+
+    # Jika hasil scraping adalah daftar gambar
+    if isinstance(image_links, list):
+        # Menampilkan hasil gambar di text_area_image_link
+        for link in image_links:
+            text_area_image_link.insert('end', link + '\n')  # Menambahkan setiap link ke text area
+    else:
+        # Jika ada error, tampilkan pesan error
+        text_area_image_link.insert('end', image_links + '\n')  # Menampilkan pesan error
+
+    # Setelah scraping selesai, tampilkan dialog "Scrape Selesai"
+    show_scrape_complete_dialog()
+
+    # Menutup jendela scrape setelah selesai
+    if scrape_window:
+        scrape_window.destroy()
+
+# Fungsi untuk menampilkan dialog selesai menggunakan messagebox
+def show_scrape_complete_dialog():
+    # Menampilkan dialog selesai
+    messagebox.showinfo("Scrape Selesai", "Scraping selesai!")
 
 
 

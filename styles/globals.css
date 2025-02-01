@@ -147,7 +147,7 @@ body {
 }
 .image-container img {
     transition: transform 0.3s ease-in-out;
-    height: 392px;
+    height: 402px;
     width: 100%;
     object-fit: cover;
 }
@@ -160,3 +160,5 @@ body {
 .chapter-link:hover {
     transform: translateY(-5px);
 }
+
+

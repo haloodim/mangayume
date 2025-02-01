@@ -1,5 +1,9 @@
 [
   {
+    "slug": "shinsou-no-raputa-bahasa-indonesia",
+    "chapters": []
+  },
+  {
     "slug": "kurasu-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-bahasa-indonesia",
     "chapters": [
       {
@@ -26,6 +30,21 @@
         "name": "chapter-05",
         "number": 5,
         "createdAt": "2025-02-01T21:21:37Z"
+      },
+      {
+        "name": "chapter-06",
+        "number": 6,
+        "createdAt": "2025-02-02T00:31:16Z"
+      },
+      {
+        "name": "chapter-07",
+        "number": 7,
+        "createdAt": "2025-02-02T00:55:06Z"
+      },
+      {
+        "name": "chapter-08",
+        "number": 8,
+        "createdAt": "2025-02-02T01:01:34Z"
       }
     ]
   },

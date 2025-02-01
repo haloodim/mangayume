@@ -220,7 +220,7 @@ export default function Komik({ comic, chapters = [], error }) {
               </div>
               <div className="md:w-2/3 md:pl-6 text-center md:text-left">
                 <h2 className="text-xl font-bold mb-4 mt-4">{comic.title}</h2>
-                <div className="bg-gray-700 p-4 rounded-lg mt-2 mb-2 overflow-y-auto" style={{ maxHeight: '105px' }}>
+                <div className="bg-gray-700 p-4 rounded-lg mt-2 mb-4 overflow-y-auto" style={{ maxHeight: '105px' }}>
                   <p className="mb-4">{comic.deskripsi}</p> {/* Deskripsi dari frontmatter */}
                 </div>
                 <div className="bg-gray-700 p-4 rounded-lg mb-4">

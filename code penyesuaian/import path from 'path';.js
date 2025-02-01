@@ -56,7 +56,6 @@ export async function getStaticProps({ params }) {
                 chapter: { ...data, content: mdxSource, formattedDate },
                 prevChapter: prevChapter ? prevChapter.replace('.mdx', '') : null, // Kirim slug chapter sebelumnya
                 nextChapter: nextChapter ? nextChapter.replace('.mdx', '') : null, // Kirim slug chapter selanjutnya
-                sortedChapters, // Kirim daftar semua chapter untuk digunakan dalam logika
             },
         };
     } catch (error) {
@@ -98,7 +97,7 @@ export async function getStaticPaths() {
     };
 }
 
-export default function Chapter({ chapter, error, prevChapter, nextChapter, sortedChapters }) {
+export default function Chapter({ chapter, error, prevChapter, nextChapter }) {
     const router = useRouter();
 
     // Jika halaman sedang dimuat, tampilkan loading
@@ -117,14 +116,6 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
     }
 
 
-    // Temukan index chapter saat ini
-    const currentIndex = sortedChapters.indexOf(`${router.query.chapterSlug}.mdx`);
-
-    // Tentukan apakah ini chapter pertama atau terakhir
-    const isFirstChapter = currentIndex === 0;
-    const isLastChapter = currentIndex === sortedChapters.length - 1;
-
-
 
     return (
         <div className="bg-gray-900 text-white font-sans">
@@ -138,35 +129,30 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     </h2>
                     <p className="text-center text-sm text-gray-400">
                         Lihat Semua Chapter{' '}
-                        <Link href={`/komik/${router.query.slug}`} className="text-blue-400 hover:underline">
-                            {chapter.title.replace(/Chapter \d+/i, '')}
-                        </Link>
+                        <a href="#" className="text-blue-400 hover:underline">
+                            I Took Over The System Players
+                        </a>
                     </p>
-
                 </div>
 
                 <div className="mb-2 p-4 sm:p-6 md:p-6 rounded-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40 flex justify-between items-center">
                     {/* Tombol Sebelumnya */}
-                    <Link href={`/komik/${router.query.slug}/chapter-${prevChapter?.replace('chapter-', '')}`}>
-                        <button
-                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
-                                }`}
-                            disabled={isFirstChapter}
-                        >
-                            Sebelumnya
-                        </button>
-                    </Link>
+                    {prevChapter && (
+                        <Link href={`/komik/${router.query.slug}/chapter-${prevChapter.replace('chapter-', '')}`}>
+                            <button className="bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200">
+                                Sebelumnya
+                            </button>
+                        </Link>
+                    )}
 
                     {/* Tombol Selanjutnya */}
-                    <Link href={`/komik/${router.query.slug}/chapter-${nextChapter?.replace('chapter-', '')}`}>
-                        <button
-                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
-                                }`}
-                            disabled={isLastChapter}
-                        >
-                            Selanjutnya
-                        </button>
-                    </Link>
+                    {nextChapter && (
+                        <Link href={`/komik/${router.query.slug}/chapter-${nextChapter.replace('chapter-', '')}`}>
+                            <button className="bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 mr-auto">
+                                Selanjutnya
+                            </button>
+                        </Link>
+                    )}
                 </div>
 
 
@@ -177,28 +163,25 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     </center>
                 </div>
 
+                {/* Kartu dengan tombol "Sebelumnya" dan "Selanjutnya" */}
                 <div className="mb-2 p-4 sm:p-6 md:p-6 rounded-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40 flex justify-between items-center">
                     {/* Tombol Sebelumnya */}
-                    <Link href={`/komik/${router.query.slug}/chapter-${prevChapter?.replace('chapter-', '')}`}>
-                        <button
-                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
-                                }`}
-                            disabled={isFirstChapter}
-                        >
-                            Sebelumnya
-                        </button>
-                    </Link>
+                    {prevChapter && (
+                        <Link href={`/komik/${router.query.slug}/chapter-${prevChapter.replace('chapter-', '')}`}>
+                            <button className="bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200">
+                                Sebelumnya
+                            </button>
+                        </Link>
+                    )}
 
                     {/* Tombol Selanjutnya */}
-                    <Link href={`/komik/${router.query.slug}/chapter-${nextChapter?.replace('chapter-', '')}`}>
-                        <button
-                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
-                                }`}
-                            disabled={isLastChapter}
-                        >
-                            Selanjutnya
-                        </button>
-                    </Link>
+                    {nextChapter && (
+                        <Link href={`/komik/${router.query.slug}/chapter-${nextChapter.replace('chapter-', '')}`}>
+                            <button className="bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200">
+                                Selanjutnya
+                            </button>
+                        </Link>
+                    )}
                 </div>
             </main>
 
