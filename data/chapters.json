@@ -2,7 +2,21 @@
   {
     "slug": "kurasu-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-bahasa-indonesia",
     "chapters": [
-     
+      {
+        "name": "chapter-01",
+        "number": 1,
+        "createdAt": "2025-02-01T20:16:15Z"
+      },
+      {
+        "name": "chapter-02",
+        "number": 2,
+        "createdAt": "2025-02-01T20:24:29Z"
+      },
+      {
+        "name": "chapter-03",
+        "number": 3,
+        "createdAt": "2025-02-01T20:26:24Z"
+      }
     ]
   },
   {
