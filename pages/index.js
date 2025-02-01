@@ -62,7 +62,6 @@ export async function getStaticProps() {
     .sort((a, b) => new Date(b.chapters[0]?.createdAt) - new Date(a.chapters[0]?.createdAt)); // Urutkan berdasarkan waktu chapter terbaru
 
   return {
-    props: { comics },
-    revalidate: 10
+    props: { comics }
   };
 }
