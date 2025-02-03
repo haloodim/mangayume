@@ -171,6 +171,76 @@
         "name": "chapter-24.2",
         "number": 24.2,
         "createdAt": "2025-02-03T15:47:38Z"
+      },
+      {
+        "name": "chapter-25.1",
+        "number": 25.1,
+        "createdAt": "2025-02-03T21:55:12Z"
+      },
+      {
+        "name": "chapter-25.2",
+        "number": 25.2,
+        "createdAt": "2025-02-03T21:55:35Z"
+      },
+      {
+        "name": "chapter-26.1",
+        "number": 26.1,
+        "createdAt": "2025-02-03T21:56:00Z"
+      },
+      {
+        "name": "chapter-26.2",
+        "number": 26.2,
+        "createdAt": "2025-02-03T21:56:19Z"
+      },
+      {
+        "name": "chapter-27.1",
+        "number": 27.1,
+        "createdAt": "2025-02-03T21:56:36Z"
+      },
+      {
+        "name": "chapter-27.2",
+        "number": 27.2,
+        "createdAt": "2025-02-03T21:56:56Z"
+      },
+      {
+        "name": "chapter-28.1",
+        "number": 28.1,
+        "createdAt": "2025-02-03T21:57:16Z"
+      },
+      {
+        "name": "chapter-28.2",
+        "number": 28.2,
+        "createdAt": "2025-02-03T21:57:36Z"
+      },
+      {
+        "name": "chapter-29.1",
+        "number": 29.1,
+        "createdAt": "2025-02-03T21:57:55Z"
+      },
+      {
+        "name": "chapter-29.2",
+        "number": 29.2,
+        "createdAt": "2025-02-03T21:58:15Z"
+      },
+      {
+        "name": "chapter-30",
+        "number": 30.0,
+        "createdAt": "2025-02-03T21:58:31Z"
+      },
+      {
+        "name": "chapter-31",
+        "number": 31.0,
+        "createdAt": "2025-02-03T21:58:52Z"
+      },
+      {
+        "name": "chapter-32",
+        "number": 32.0,
+        "createdAt": "2025-02-03T21:59:10Z"
+      },
+      {
+        "name": "chapter-33",
+        "number": 33.0,
+        "createdAt": "2025-02-03T21:59:29Z"
       }
     ]
   }
