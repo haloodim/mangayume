@@ -1,125 +1,36 @@
 [
   {
-    "slug": "shinsou-no-raputa-bahasa-indonesia",
-    "chapters": []
-  },
-  {
     "slug": "kurasu-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-bahasa-indonesia",
     "chapters": [
       {
         "name": "chapter-01",
         "number": 1,
-        "createdAt": "2025-02-01T20:16:15Z"
+        "createdAt": "2025-02-02T10:56:59Z"
       },
       {
         "name": "chapter-02",
         "number": 2,
-        "createdAt": "2025-02-01T20:24:29Z"
+        "createdAt": "2025-02-03T11:10:38Z"
       },
       {
         "name": "chapter-03",
         "number": 3,
-        "createdAt": "2025-02-01T20:26:24Z"
+        "createdAt": "2025-02-03T11:30:20Z"
       },
       {
         "name": "chapter-04",
         "number": 4,
-        "createdAt": "2025-02-01T21:16:54Z"
+        "createdAt": "2025-02-03T14:58:58Z"
       },
       {
         "name": "chapter-05",
         "number": 5,
-        "createdAt": "2025-02-01T21:21:37Z"
+        "createdAt": "2025-02-03T14:59:38Z"
       },
       {
         "name": "chapter-06",
         "number": 6,
-        "createdAt": "2025-02-02T00:31:16Z"
-      },
-      {
-        "name": "chapter-07",
-        "number": 7,
-        "createdAt": "2025-02-02T00:55:06Z"
-      },
-      {
-        "name": "chapter-08",
-        "number": 8,
-        "createdAt": "2025-02-02T01:01:34Z"
-      }
-    ]
-  },
-  {
-    "slug": "29-to-jk-indonesia",
-    "chapters": [
-      {
-        "name": "chapter-01",
-        "number": 1,
-        "createdAt": "2025-01-29T15:09:00Z"
-      },
-      {
-        "name": "chapter-02",
-        "number": 2,
-        "createdAt": "2025-01-29T15:10:00Z"
-      },
-      {
-        "name": "chapter-03",
-        "number": 3,
-        "createdAt": "2025-01-29T15:20:00Z"
-      },
-      {
-        "name": "chapter-04",
-        "number": 4,
-        "createdAt": "2025-01-29T15:58:00Z"
-      },
-      {
-        "name": "chapter-05",
-        "number": 5,
-        "createdAt": "2025-01-30T00:13:00Z"
-      },
-      {
-        "name": "chapter-06",
-        "number": 6,
-        "createdAt": "2025-01-31T09:56:00Z"
-      }
-    ]
-  },
-  {
-    "slug": "a-vampire-who-is-inept-at-sucking-blood-indonesia",
-    "chapters": [
-      {
-        "name": "chapter-01",
-        "number": 1,
-        "createdAt": "2025-01-29T16:01:00Z"
-      },
-      {
-        "name": "chapter-02",
-        "number": 2,
-        "createdAt": "2025-01-29T22:56:00Z"
-      },
-      {
-        "name": "chapter-03",
-        "number": 3,
-        "createdAt": "2025-01-30T00:18:00Z"
-      }
-    ]
-  },
-  {
-    "slug": "shounen-no-abyss-bahasa-indonesia",
-    "chapters": [
-      {
-        "name": "chapter-01",
-        "number": 1,
-        "createdAt": "2025-01-30T00:28:00Z"
-      }
-    ]
-  },
-  {
-    "slug": "kanojo-okarishimasu-bahasa-indonesia",
-    "chapters": [
-      {
-        "name": "chapter-01",
-        "number": 1,
-        "createdAt": "2025-01-31T09:57:00Z"
+        "createdAt": "2025-02-03T15:00:06Z"
       }
     ]
   }

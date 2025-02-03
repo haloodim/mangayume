@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link'; // Import Next.js Link
 import { BookmarkIcon, EyeIcon } from '@heroicons/react/24/outline'; // Mengimpor ikon bookmark
 import { format } from 'date-fns';
+import { id } from 'date-fns/locale';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { supabase } from '../../lib/supabaseClient';
 import Head from 'next/head';
@@ -134,6 +135,23 @@ export default function Komik({ comic, chapters = [], error }) {
   ///end of function////
 
 
+  // Fungsi untuk menampilkan tanggal statis dalam format yang diinginkan
+  const formatCreatedDate = (date) => {
+    // Jika tidak ada tanggal (undefined/null/empty), gunakan tanggal hari ini
+    if (!date) {
+      return format(new Date(), 'MMMM d, yyyy', { locale: id }); // Misal: Januari 30, 2025
+    }
+
+    const validDate = new Date(date);
+
+    // Jika tanggal valid, gunakan yang ada, kalau tidak valid, fallback ke tanggal hari ini
+    return isNaN(validDate.getTime())
+      ? format(new Date(), 'MMMM d, yyyy', { locale: id })
+      : format(validDate, 'MMMM d, yyyy', { locale: id });
+  };
+  ////end of function/////// 
+
+
   ////function pencarian list chapter /////
   const [searchQuery, setSearchQuery] = useState(""); // State untuk menyimpan query pencarian
 
@@ -237,7 +255,7 @@ export default function Komik({ comic, chapters = [], error }) {
                   <span className="text-sm text-gray-400">First Chapter</span>
                   {chapters.length > 0 ? (
                     <Link href={chapters[chapters.length - 1].href}>
-                      <span className="chapter-link mt-2 block text-lg font-bold hover:text-yellow-400">
+                      <span className="chapter-link mt-2 block text-lg font-bold hover:text-blue-400">
                         {capitalizeFirstLetter(chapters[chapters.length - 1].name)}
                       </span>
                     </Link>
@@ -254,7 +272,7 @@ export default function Komik({ comic, chapters = [], error }) {
                   <span className="text-sm text-gray-400">New Chapter</span>
                   {chapters.length > 1 ? (
                     <Link href={chapters[0].href}>
-                      <span className="chapter-link mt-2 block text-lg font-bold hover:text-yellow-400">
+                      <span className="chapter-link mt-2 block text-lg font-bold hover:text-blue-400">
                         {capitalizeFirstLetter(chapters[0].name)}
                       </span>
                     </Link>
@@ -272,7 +290,7 @@ export default function Komik({ comic, chapters = [], error }) {
                 <input
                   type="text"
                   placeholder="Search Chapter..."
-                  className="w-full p-2 pl-8 pr-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="w-full p-2 pl-8 pr-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={handleSearchChange} // Panggil fungsi saat input berubah
                 />
@@ -291,7 +309,7 @@ export default function Komik({ comic, chapters = [], error }) {
                           {chapter.isNew && <sup>🔥</sup>}
                         </span>
                         <span className="text-gray-400 flex-shrink-0">
-                          {chapter.date} {/* Tampilkan tanggal */}
+                          {formatCreatedDate(chapter.createdAt)} {/* Tampilkan tanggal */}
                         </span>
                       </span>
                     </Link>
@@ -317,7 +335,7 @@ export default function Komik({ comic, chapters = [], error }) {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const comicDir = path.join(process.cwd(), 'content', slug);
-  const currentDate = format(new Date(), 'dd-MM-yyyy'); // Format current date sebagai string
+  const currentDate = format(new Date(), 'dd-MM-yyyy');
 
   try {
     if (!fs.existsSync(comicDir)) {
@@ -330,20 +348,11 @@ export async function getStaticProps({ params }) {
       .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx')) // Filter file chapter
       .map((file) => {
         const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
-
-        // Baca file chapter untuk mengambil createdAt dari frontmatter
-        const filePath = path.join(comicDir, file);
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
-        const { data } = matter(fileContent);
-
-        // Ambil createdAt dari frontmatter, jika ada, jika tidak, gunakan currentDate
-        const createdAt = data.createdAt ? format(new Date(data.createdAt), 'MMMM d, yyyy') : currentDate;
-
         return {
           href: `/komik/${slug}/${file.replace('.mdx', '')}`, // Buat link dinamis
           name: file.replace('.mdx', '').replace('-', ' '), // Format nama chapter
           number: chapterNumber, // Ambil nomor chapter
-          date: createdAt, // Format date ke string yang dapat diserialisasi
+          date: currentDate, // Tambahkan properti tanggal dengan tanggal bulan dan tahun berjalan
         };
       })
       .sort((a, b) => b.number - a.number); // Urutkan berdasarkan nomor chapter (terbaru di atas)

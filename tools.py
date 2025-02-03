@@ -80,6 +80,7 @@ def create_chapter():
         ---
         title: "{komik_title.replace(' Bahasa Indonesia', '')} Chapter {chapter_number} Bahasa Indonesia"
         deskripsi: "Ini adalah chapter {chapter_number} dari komik dengan judul {komik_title}."
+        createdAt: {created_at}
         ---
 
     """)
@@ -106,9 +107,6 @@ def create_chapter():
 
     # Menampilkan pesan atau tombol lain jika diperlukan setelah chapter selesai dibuat
     messagebox.showinfo("Sukses", "Chapter baru berhasil dibuat! Anda dapat membuat chapter baru lagi.")
-
-
-
 
 
 # Fungsi untuk membuat folder dan file index.mdx serta memperbarui chapters.json
@@ -345,7 +343,7 @@ root.update_idletasks()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 window_width = 500
-window_height = 600
+window_height = 550
 position_x = (screen_width - window_width) // 2
 position_y = (screen_height - window_height) // 2
 root.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")

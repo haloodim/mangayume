@@ -121,7 +121,7 @@ body {
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 .chapter-item:hover .hover-chapter {
-    color: #63b3ed; /* Tailwind's blue-400 */
+    color: rgb(255, 187, 0); /* Tailwind's blue-400 */
     transform: translateX(10px);
 }
 .hover-chapter::before {
@@ -134,7 +134,7 @@ body {
     content: '→';
     width: auto;
     margin-right: 2px;
-    color: #63b3ed; /* Tailwind's blue-400 */
+    color: rgb(255, 187, 0); /* Tailwind's blue-400 */
 }
 .chapter-item span:last-child {
     transition: none !important;

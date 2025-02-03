@@ -21,7 +21,7 @@ export default function Navbar() {
           className={`absolute top-4 right-4 z-50 ${isOpen ? 'hidden' : ''}`}
         >
           <button
-            className="p-2 rounded-md bg-gray-800 text-white hover:bg-gray-700"
+            className="p-3 rounded-md bg-gray-800 text-white hover:bg-gray-700"
             onClick={openNav}
           >
             ☰

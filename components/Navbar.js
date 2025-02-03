@@ -8,12 +8,9 @@ export default function Navbar() {
         <Link href="/" className="flex items-center">
     <img
       alt="Mangamas Logo"
-      className="rounded-full"
-      height="40"
-      src="https://storage.googleapis.com/a1aa/image/d51vAcCdQNJ0LxoDwiJ7Se6biVKey9UnxfQ9BsWZBvw1A7QoA.jpg"
-      width="40"
+      src="/images/logo.svg"
+      className="w-[175px] sm:w-[275px] max-w-full h-auto"
     />
-    <h1 className="text-2xl font-bold ml-2">Mangamas</h1>
   </Link>
         </div>
         <nav className="hidden md:flex space-x-6 font-semibold">

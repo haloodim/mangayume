@@ -18,37 +18,37 @@ const RelativeTimeDisplay = ({ time }) => {
     const calculateRelativeTime = () => {
       const now = new Date(); // Waktu saat ini
       const timeDate = new Date(time); // Parsing waktu yang diterima ke Date
-      
+
       console.log("Current time (now):", now);  // Waktu sekarang
       console.log("Time received (time):", timeDate);  // Waktu yang diterima
-      
+
       // Konversi waktu yang diterima ke zona waktu lokal
       const localTimeDate = new Date(timeDate.getTime() + timeDate.getTimezoneOffset() * 60000);
-    
+
       // Cek apakah waktu yang diterima valid
       if (isNaN(localTimeDate.getTime())) {
         setFormattedTime("Waktu tidak valid");
         console.log("Invalid time received:", time);
         return;
       }
-    
+
       // Hitung selisih waktu dalam detik
-      const diffInSeconds = Math.floor((now - localTimeDate) / 1000); 
-    
+      const diffInSeconds = Math.floor((now - localTimeDate) / 1000);
+
       console.log("Time difference in seconds:", diffInSeconds);
-    
+
       // Jika waktu yang diterima lebih besar dari waktu sekarang, tampilkan "Waktu tidak valid"
       if (diffInSeconds < 0) {
         setFormattedTime("Waktu tidak valid");
         console.log("The received time is in the future. Time difference:", diffInSeconds);
         return;
       }
-    
+
       const days = Math.floor(diffInSeconds / (60 * 60 * 24)); // Hari
       const hours = Math.floor((diffInSeconds % (60 * 60 * 24)) / (60 * 60)); // Jam
       const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60); // Menit
       const seconds = diffInSeconds % 60; // Detik
-    
+
       // Tentukan format berdasarkan selisih waktu
       if (days >= 365) {
         setFormattedTime(`${Math.floor(days / 365)} tahun lalu`);
@@ -66,9 +66,6 @@ const RelativeTimeDisplay = ({ time }) => {
         setFormattedTime(`${seconds} detik lalu`);
       }
     };
-    
-    
-            
 
     calculateRelativeTime(); // Panggil sekali langsung
     const intervalId = setInterval(calculateRelativeTime, 1000); // Update setiap detik
@@ -149,8 +146,6 @@ export default function HomeContent({ comics }) {
       router.push(`?page=${page}`, undefined, { shallow: true });
     }
   };
-
-
   ///////////////////////////
 
 
@@ -201,25 +196,20 @@ export default function HomeContent({ comics }) {
                   </div>
                 </Link>
                 {comic.chapters && comic.chapters.length > 0 ? (
-  comic.chapters.map((chapter, index) => (
-    <Link
-      key={index}
-      href={`/komik/${comic.slug}/${chapter.name}`}
-      className="mt-2 border border-white text-white py-1 px-2 rounded-full text-[13px] w-full flex justify-between hover:border-blue-500 hover:text-blue-500"
-    >
-      <span>Ch. {chapter.number}</span>
-      {/* Pastikan `createdAt` adalah string yang valid */}
-      <RelativeTimeDisplay time={chapter.createdAt} />
-    </Link>
-  ))
-) : (
-  <p>No chapters available.</p>
-)}
-
-
-
-
-
+                  comic.chapters.map((chapter, index) => (
+                    <Link
+                      key={index}
+                      href={`/komik/${comic.slug}/${chapter.name}`}
+                      className="mt-2 border border-white text-white py-1 px-2 rounded-full text-[13px] w-full flex justify-between hover:border-yellow-500 hover:text-yellow-500"
+                    >
+                      <span>Ch. {chapter.number}</span>
+                      {/* Pastikan `createdAt` adalah string yang valid */}
+                      <RelativeTimeDisplay time={chapter.createdAt} />
+                    </Link>
+                  ))
+                ) : (
+                  <p>No chapters available.</p>
+                )}
               </div>
             );
           })}

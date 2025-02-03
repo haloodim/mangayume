@@ -6,13 +6,13 @@ import Navbar from '../../../components/Navbar';
 import Sidebar from '../../../components/Sidebar';
 import Footer from '../../../components/Footer';
 import FloatingButton from '../../../components/FloatingButton';
+import { format } from 'date-fns';
+import { id } from 'date-fns/locale';
 import { MDXRemote } from 'next-mdx-remote'; // Import MDXRemote untuk render MDX
 import { serialize } from 'next-mdx-remote/serialize'; // Import serialize untuk mengonversi MDX
 import Link from 'next/link';
 
 
-// Fungsi untuk mengambil data chapter
-// Fungsi untuk mengambil data chapter
 // Fungsi untuk mengambil data chapter
 export async function getStaticProps({ params }) {
     const { slug, chapterSlug } = params;
@@ -30,7 +30,7 @@ export async function getStaticProps({ params }) {
 
         // Tentukan chapter sebelumnya dan chapter selanjutnya
         const prevChapter = currentIndex > 0 ? sortedChapters[currentIndex - 1] : null;
-        const nextChapter = currentIndex < sortedChapters.length - 1 ? sortedChapters[currentIndex + 1] : null; // Perbaikan di sini
+        const nextChapter = currentIndex < sortedChapters.length - 1 ? sortedChapters[currentIndex + 1] : null;
 
         // Ambil path chapter saat ini
         const chapterPath = path.join(comicDir, `${chapterSlug}.mdx`);
@@ -43,9 +43,9 @@ export async function getStaticProps({ params }) {
         const fileContent = fs.readFileSync(chapterPath, 'utf-8');
         const { data, content } = matter(fileContent); // Ambil data dan konten dari chapter
 
-        // Jika data ada tanggal, format tanggal sebagai string yang dapat diserialisasi
+        // Jika data ada tanggal, format tanggal
         const formattedDate = data.createdAt
-            ? new Date(data.createdAt).toISOString() // Ubah objek Date menjadi string (ISO format)
+            ? format(new Date(data.createdAt), 'd MMMM yyyy', { locale: id })
             : null;
 
         // Mengonversi konten MDX menjadi format yang bisa di-render
@@ -53,7 +53,7 @@ export async function getStaticProps({ params }) {
 
         return {
             props: {
-                chapter: { ...data, content: mdxSource, createdAt: formattedDate }, // Ganti createdAt menjadi string
+                chapter: { ...data, content: mdxSource, formattedDate },
                 prevChapter: prevChapter ? prevChapter.replace('.mdx', '') : null, // Kirim slug chapter sebelumnya
                 nextChapter: nextChapter ? nextChapter.replace('.mdx', '') : null, // Kirim slug chapter selanjutnya
                 sortedChapters, // Kirim daftar semua chapter untuk digunakan dalam logika
@@ -65,7 +65,6 @@ export async function getStaticProps({ params }) {
         };
     }
 }
-
 
 // Fungsi untuk mendapatkan paths chapter
 export async function getStaticPaths() {
@@ -139,7 +138,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     </h2>
                     <p className="text-center text-sm text-gray-400">
                         Lihat Semua Chapter{' '}
-                        <Link href={`/komik/${router.query.slug}`} className="text-yellow-400 hover:underline">
+                        <Link href={`/komik/${router.query.slug}`} className="text-blue-400 hover:underline">
                             {chapter.title.replace(/Chapter \d+/i, '')}
                         </Link>
                     </p>
@@ -150,7 +149,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     {/* Tombol Sebelumnya */}
                     <Link href={`/komik/${router.query.slug}/chapter-${prevChapter?.replace('chapter-', '')}`}>
                         <button
-                            className={`bg-yellow-500 text-white py-1 px-3 text-sm rounded-full hover:bg-yellow-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
+                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
                                 }`}
                             disabled={isFirstChapter}
                         >
@@ -161,7 +160,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     {/* Tombol Selanjutnya */}
                     <Link href={`/komik/${router.query.slug}/chapter-${nextChapter?.replace('chapter-', '')}`}>
                         <button
-                            className={`bg-yellow-500 text-white py-1 px-3 text-sm rounded-full hover:bg-yellow-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
+                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
                                 }`}
                             disabled={isLastChapter}
                         >
@@ -182,7 +181,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     {/* Tombol Sebelumnya */}
                     <Link href={`/komik/${router.query.slug}/chapter-${prevChapter?.replace('chapter-', '')}`}>
                         <button
-                            className={`bg-yellow-500 text-white py-1 px-3 text-sm rounded-full hover:bg-yellow-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
+                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ${isFirstChapter ? 'cursor-not-allowed opacity-50' : ''
                                 }`}
                             disabled={isFirstChapter}
                         >
@@ -193,7 +192,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     {/* Tombol Selanjutnya */}
                     <Link href={`/komik/${router.query.slug}/chapter-${nextChapter?.replace('chapter-', '')}`}>
                         <button
-                            className={`bg-yellow-500 text-white py-1 px-3 text-sm rounded-full hover:bg-yellow-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
+                            className={`bg-blue-500 text-white py-1 px-3 text-sm rounded-full hover:bg-blue-600 transition duration-200 ml-auto ${isLastChapter ? 'cursor-not-allowed opacity-50' : ''
                                 }`}
                             disabled={isLastChapter}
                         >
