@@ -329,7 +329,9 @@ export async function getStaticProps({ params }) {
     const chapters = files
       .filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx')) // Filter file chapter
       .map((file) => {
-        const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
+
+        const chapterNumber = parseFloat(file.match(/chapter-(\d+(\.\d+)?)/)?.[1]) || 0;
+        //const chapterNumber = parseInt(file.match(/chapter-(\d+)/)?.[1], 10) || 0;
 
         // Baca file chapter untuk mengambil createdAt dari frontmatter
         const filePath = path.join(comicDir, file);

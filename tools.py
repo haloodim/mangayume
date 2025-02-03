@@ -20,7 +20,8 @@ def create_chapter():
     
     # Generate slug untuk chapter dan komik
     chapter_slug = re.sub(r'\s+', '-', chapter_title.lower())  # Format: chapter-01
-    chapter_number = int(re.search(r'(\d+)', chapter_slug).group(0))  # Mengambil angka chapter
+    chapter_number = float(re.search(r'(\d+(\.\d+)?)', chapter_slug).group(0)) 
+    #chapter_number = int(re.search(r'(\d+)', chapter_slug).group(0))  # Mengambil angka chapter
     created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")  # Format tanggal
     
     # Generate slug komik
