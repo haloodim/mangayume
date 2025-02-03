@@ -125,7 +125,22 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
     const isFirstChapter = currentIndex === 0;
     const isLastChapter = currentIndex === sortedChapters.length - 1;
 
+    //////////////////////////////////
+    // Komponen LazyImage untuk lazy load dengan efek blur
+    const LazyImage = ({ src, alt }) => {
+        const [loaded, setLoaded] = useState(false);
 
+        return (
+            <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className={`w-full h-auto rounded-lg transition-all duration-500 ease-in-out ${loaded ? "opacity-100 blur-0" : "opacity-50 blur-md"
+                    }`}
+                onLoad={() => setLoaded(true)}
+            />
+        );
+    };
 
     return (
         <div className="bg-gray-900 text-white font-sans">
@@ -174,7 +189,10 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                 {/* Galeri Gambar */}
                 <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
                     <center>
-                        <MDXRemote {...chapter.content} />
+                        <MDXRemote
+                            {...chapter.content}
+                            components={{ img: (props) => <LazyImage {...props} /> }}
+                        />
                     </center>
                 </div>
 
