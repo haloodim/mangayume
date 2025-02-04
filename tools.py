@@ -355,6 +355,7 @@ tabview.pack(pady=20, padx=20, fill="both", expand=True)
 
 tab_create_folder = tabview.add("Create Folder")
 tab_create_chapter = tabview.add("Create Chapter")
+tab_create_chapter_batch = tabview.add("Create Chapter Batch")
 
 # Tab Create Folder
 ctk.CTkLabel(tab_create_folder, text="Masukkan Data untuk index.mdx", font=("Arial", 16)).pack(pady=10)
@@ -385,8 +386,14 @@ btn_create.pack(pady=20)
 entry_chapter_check = ctk.CTkEntry(tab_create_chapter, placeholder_text="Judul Komik")
 entry_chapter_check.pack(pady=10, fill='x', padx=10)
 
+#UI untuk chapter batch
+
+
+
 # Tambahkan tombol cek komik & chapter di UI
 btn_check_comic = ctk.CTkButton(tab_create_chapter, text="Cek Komik & Chapter", command=check_comic_and_chapter)
 btn_check_comic.pack(pady=10)
+
+
 
 root.mainloop()

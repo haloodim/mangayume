@@ -1,5 +1,110 @@
 [
   {
+    "slug": "grand-dwarf-bahasa-indonesia",
+    "chapters": [
+      {
+        "name": "chapter-01",
+        "number": 1.0,
+        "createdAt": "2025-02-04T17:55:56Z"
+      },
+      {
+        "name": "chapter-02",
+        "number": 2.0,
+        "createdAt": "2025-02-04T17:56:16Z"
+      },
+      {
+        "name": "chapter-03",
+        "number": 3.0,
+        "createdAt": "2025-02-04T17:57:06Z"
+      },
+      {
+        "name": "chapter-04",
+        "number": 4.0,
+        "createdAt": "2025-02-04T17:57:25Z"
+      },
+      {
+        "name": "chapter-05",
+        "number": 5.0,
+        "createdAt": "2025-02-04T17:58:03Z"
+      },
+      {
+        "name": "chapter-06",
+        "number": 6.0,
+        "createdAt": "2025-02-04T17:58:22Z"
+      },
+      {
+        "name": "chapter-07",
+        "number": 7.0,
+        "createdAt": "2025-02-04T17:58:43Z"
+      },
+      {
+        "name": "chapter-08",
+        "number": 8.0,
+        "createdAt": "2025-02-04T17:59:01Z"
+      },
+      {
+        "name": "chapter-09",
+        "number": 9.0,
+        "createdAt": "2025-02-04T17:59:18Z"
+      },
+      {
+        "name": "chapter-10",
+        "number": 10.0,
+        "createdAt": "2025-02-04T17:59:36Z"
+      },
+      {
+        "name": "chapter-11",
+        "number": 11.0,
+        "createdAt": "2025-02-04T17:59:51Z"
+      },
+      {
+        "name": "chapter-12",
+        "number": 12.0,
+        "createdAt": "2025-02-04T18:00:16Z"
+      },
+      {
+        "name": "chapter-13",
+        "number": 13.0,
+        "createdAt": "2025-02-04T18:00:32Z"
+      },
+      {
+        "name": "chapter-14",
+        "number": 14.0,
+        "createdAt": "2025-02-04T18:00:49Z"
+      },
+      {
+        "name": "chapter-15",
+        "number": 15.0,
+        "createdAt": "2025-02-04T18:01:05Z"
+      },
+      {
+        "name": "chapter-16",
+        "number": 16.0,
+        "createdAt": "2025-02-04T18:01:21Z"
+      },
+      {
+        "name": "chapter-17",
+        "number": 17.0,
+        "createdAt": "2025-02-04T18:01:36Z"
+      },
+      {
+        "name": "chapter-18",
+        "number": 18.0,
+        "createdAt": "2025-02-04T18:01:51Z"
+      },
+      {
+        "name": "chapter-19",
+        "number": 19.0,
+        "createdAt": "2025-02-04T18:02:07Z"
+      },
+      {
+        "name": "chapter-20",
+        "number": 20.0,
+        "createdAt": "2025-02-04T18:02:24Z"
+      }
+    ]
+  },
+  {
     "slug": "kurasu-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-bahasa-indonesia",
     "chapters": [
       {
