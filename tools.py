@@ -6,6 +6,121 @@ from tkinter import messagebox
 from datetime import datetime
 import textwrap
 from fungsi.scrape import scrape_images 
+import textwrap
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from tkinter import messagebox
+
+
+
+# Fungsi utama untuk scrape dan create chapter batch
+# Fungsi utama untuk scrape dan create chapter batch
+def create_chapter_batch():
+    komik_url = entry_chapter_name.get().strip()  # Ambil URL komik dari input
+    komik_slug_match = re.search(r'manga/([^/]+)/?', komik_url)
+    
+    if not komik_slug_match:
+        messagebox.showerror('Error', 'URL komik tidak valid!')
+        return
+    
+    komik_slug = komik_slug_match.group(1)
+    print("Slug komik:", komik_slug)  # Debugging
+
+    folder_path = os.path.join('content', komik_slug)
+
+    # Pastikan folder content dan komik ada
+    if not os.path.exists('content'):
+        os.makedirs('content')
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+    # Setup Selenium
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    
+    # Akses halaman utama komik
+    driver.get(komik_url)
+    
+    # Ambil daftar chapter
+    chapters = driver.find_elements(By.CSS_SELECTOR, 'td.judulseries a')
+
+    # Cek chapters.json
+    chapters_json_path = os.path.join('data', 'chapters.json')
+    if os.path.exists(chapters_json_path):
+        with open(chapters_json_path, 'r', encoding='utf-8') as f:
+            try:
+                chapters_data = json.load(f)
+            except json.JSONDecodeError:
+                chapters_data = []
+    else:
+        chapters_data = []
+
+    comic_data = next((comic for comic in chapters_data if comic['slug'] == komik_slug), None)
+    if not comic_data:
+        comic_data = {'slug': komik_slug, 'chapters': []}
+        chapters_data.append(comic_data)
+
+    for chapter in chapters:
+        link = chapter.get_attribute('href')
+
+        try:
+            chapter_title_element = chapter.find_element(By.TAG_NAME, 'span')
+            chapter_title = chapter_title_element.text.strip()
+        except:
+            messagebox.showerror('Error', f'Tidak bisa mengambil judul chapter dari {link}')
+            continue
+
+        print("Judul chapter:", chapter_title)  # Debugging
+
+        # Ambil nomor chapter dari teks "Chapter 01"
+        chapter_number_match = re.search(r'Chapter (\d+(\.\d+)?)', chapter_title, re.IGNORECASE)
+        if not chapter_number_match:
+            messagebox.showwarning('Peringatan', f'Tidak bisa menemukan nomor chapter di "{chapter_title}"')
+            continue
+
+        chapter_number = float(chapter_number_match.group(1))
+        chapter_slug = f'chapter-{int(chapter_number)}'
+        created_at = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+
+        driver.get(link)
+        images = driver.find_elements(By.CSS_SELECTOR, 'img')
+        image_links = [img.get_attribute('src') for img in images]
+
+        new_chapter = {
+            'name': chapter_slug,
+            'number': chapter_number,
+            'createdAt': created_at
+        }
+        comic_data['chapters'].append(new_chapter)
+
+        chapter_mdx_content = textwrap.dedent(f"""
+            ---
+            title: "{komik_slug.replace('-', ' ')} Chapter {int(chapter_number)} Bahasa Indonesia"
+            deskripsi: "Ini adalah chapter {int(chapter_number)} dari komik dengan judul {komik_slug.replace('-', ' ')}."
+            createdAt: {created_at}
+            ---
+        """)
+
+        for image_link in image_links:
+            chapter_mdx_content += f'<img src="{image_link}" alt="{komik_slug.replace("-", " ")} Chapter {int(chapter_number)}" loading="lazy" />\n\n'
+
+        chapter_filename = f'{chapter_slug}.mdx'
+        chapter_path = os.path.join(folder_path, chapter_filename)
+
+        with open(chapter_path, 'w', encoding='utf-8') as f:
+            f.write(chapter_mdx_content)
+
+    with open(chapters_json_path, 'w', encoding='utf-8') as f:
+        json.dump(chapters_data, f, indent=2)
+
+    messagebox.showinfo('Sukses', 'Semua chapter berhasil dibuat!')
+    driver.quit()
+
 
 def create_chapter():
     # Ambil data input
@@ -221,6 +336,53 @@ def check_comic_and_chapter():
     # Jika tidak ditemukan
     messagebox.showwarning("Info", f"Komik '{comic_title}' tidak ditemukan dalam chapters.json!")
 
+
+# Fungsi cek judul komik dan chapter di json
+def check_comic_and_chapter_batch():
+    comic_title = entry_chapter_check_batch.get().strip()
+    
+    if not comic_title:
+        messagebox.showerror("Error", "Judul komik tidak boleh kosong!")
+        return
+    
+    # Konversi judul ke slug
+    comic_slug = re.sub(r'\s+', '-', comic_title.lower())
+    
+    # Cek apakah chapters.json ada
+    chapters_json_path = "data/chapters.json"
+    if not os.path.exists(chapters_json_path):
+        messagebox.showerror("Error", "File chapters.json tidak ditemukan!")
+        return
+
+    # Baca chapters.json
+    try:
+        with open(chapters_json_path, "r", encoding="utf-8") as f:
+            chapters_data = json.load(f)
+    except json.JSONDecodeError:
+        chapters_data = []
+
+    # Cari komik berdasarkan slug
+    for entry in chapters_data:
+        if entry["slug"] == comic_slug:
+            chapters = entry.get("chapters", [])
+            
+            if not chapters:
+                response = messagebox.askyesno("Info", f"Komik '{comic_title}' ditemukan.\nNamun, chapters masih kosong!\n\nIngin mengisi data JSON?")
+                if response:
+                    show_chapter_form_batch()
+                return
+            
+            # Ambil chapter terakhir berdasarkan number tertinggi
+            last_chapter = max(chapters, key=lambda x: x["number"])
+            response = messagebox.askyesno("Info", f"Komik '{comic_title}' ditemukan.\nChapter terakhir: {last_chapter['name']} (Chapter {last_chapter['number']})\nDibuat pada: {last_chapter['createdAt']}\n\nIngin menambah chapter baru?")
+            
+            if response:
+                show_chapter_form_batch()
+            return
+    
+    # Jika tidak ditemukan
+    messagebox.showwarning("Info", f"Komik '{comic_title}' tidak ditemukan dalam chapters.json!")
+
 def show_chapter_form():
     # Menampilkan form input chapter setelah memilih Yes
 
@@ -241,6 +403,19 @@ def show_chapter_form():
     # Tombol Scrape Link
     global btn_scrape_link
     btn_scrape_link = ctk.CTkButton(tab_create_chapter, text="Scrape Link", command=open_scrape_window)
+    btn_scrape_link.pack(pady=10)
+
+
+def show_chapter_form_batch():
+    # Menampilkan form input chapter setelah memilih Yes
+
+    global entry_chapter_name  # Membuat entry field global untuk akses di seluruh fungsi
+    entry_chapter_name = ctk.CTkEntry(tab_create_chapter_batch, placeholder_text="Judul Chapter")
+    entry_chapter_name.pack(pady=5, fill='x', padx=10)
+
+    # Tombol Scrape Link
+    global btn_scrape_link
+    btn_scrape_link = ctk.CTkButton(tab_create_chapter_batch, text="Scrape Link", command=create_chapter_batch)
     btn_scrape_link.pack(pady=10)
 
 
@@ -387,12 +562,17 @@ entry_chapter_check = ctk.CTkEntry(tab_create_chapter, placeholder_text="Judul K
 entry_chapter_check.pack(pady=10, fill='x', padx=10)
 
 #UI untuk chapter batch
-
+entry_chapter_check_batch = ctk.CTkEntry(tab_create_chapter_batch, placeholder_text="Judul Komik")
+entry_chapter_check_batch.pack(pady=10, fill='x', padx=10)
 
 
 # Tambahkan tombol cek komik & chapter di UI
 btn_check_comic = ctk.CTkButton(tab_create_chapter, text="Cek Komik & Chapter", command=check_comic_and_chapter)
 btn_check_comic.pack(pady=10)
+
+# Tambahkan tombol cek komik & chapter di UI batch
+btn_check_comic_batch = ctk.CTkButton(tab_create_chapter_batch, text="Cek Komik & Chapter", command=check_comic_and_chapter_batch)
+btn_check_comic_batch.pack(pady=10)
 
 
 
