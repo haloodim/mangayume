@@ -1,5 +1,20 @@
 [
   {
+    "slug": "gimai-seikatsu-bahasa-indonesia",
+    "chapters": [
+      {
+        "name": "chapter-01.1",
+        "number": 1.1,
+        "createdAt": "2025-02-05T09:03:10Z"
+      },
+      {
+        "name": "chapter-01.2",
+        "number": 1.2,
+        "createdAt": "2025-02-05T09:03:35Z"
+      }
+    ]
+  },
+  {
     "slug": "grand-dwarf-bahasa-indonesia",
     "chapters": [
       {
