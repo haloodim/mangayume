@@ -1,5 +1,2220 @@
 [
     {
+        "slug": "hitoribocchi-no-isekai-kouryaku-bahasa-indonesia",
+        "chapters": [
+            {
+                "name": "chapter-263",
+                "number": 263,
+                "createdAt": "2025-02-10T00:15:23Z"
+            },
+            {
+                "name": "chapter-262",
+                "number": 262,
+                "createdAt": "2025-02-10T00:15:22Z"
+            },
+            {
+                "name": "chapter-261",
+                "number": 261,
+                "createdAt": "2025-02-10T00:15:22Z"
+            },
+            {
+                "name": "chapter-260",
+                "number": 260,
+                "createdAt": "2025-02-10T00:15:21Z"
+            },
+            {
+                "name": "chapter-259",
+                "number": 259,
+                "createdAt": "2025-02-10T00:15:20Z"
+            },
+            {
+                "name": "chapter-258",
+                "number": 258,
+                "createdAt": "2025-02-10T00:15:18Z"
+            },
+            {
+                "name": "chapter-257",
+                "number": 257,
+                "createdAt": "2025-02-10T00:15:17Z"
+            },
+            {
+                "name": "chapter-256",
+                "number": 256,
+                "createdAt": "2025-02-10T00:15:16Z"
+            },
+            {
+                "name": "chapter-255",
+                "number": 255,
+                "createdAt": "2025-02-10T00:15:15Z"
+            },
+            {
+                "name": "chapter-254",
+                "number": 254,
+                "createdAt": "2025-02-10T00:15:14Z"
+            },
+            {
+                "name": "chapter-253",
+                "number": 253,
+                "createdAt": "2025-02-10T00:15:13Z"
+            },
+            {
+                "name": "chapter-252",
+                "number": 252,
+                "createdAt": "2025-02-10T00:15:12Z"
+            },
+            {
+                "name": "chapter-251",
+                "number": 251,
+                "createdAt": "2025-02-10T00:15:11Z"
+            },
+            {
+                "name": "chapter-250",
+                "number": 250,
+                "createdAt": "2025-02-10T00:15:09Z"
+            },
+            {
+                "name": "chapter-249",
+                "number": 249,
+                "createdAt": "2025-02-10T00:15:08Z"
+            },
+            {
+                "name": "chapter-248",
+                "number": 248,
+                "createdAt": "2025-02-10T00:15:07Z"
+            },
+            {
+                "name": "chapter-247",
+                "number": 247,
+                "createdAt": "2025-02-10T00:15:06Z"
+            },
+            {
+                "name": "chapter-246",
+                "number": 246,
+                "createdAt": "2025-02-10T00:15:04Z"
+            },
+            {
+                "name": "chapter-245",
+                "number": 245,
+                "createdAt": "2025-02-10T00:15:04Z"
+            },
+            {
+                "name": "chapter-244",
+                "number": 244,
+                "createdAt": "2025-02-10T00:15:03Z"
+            },
+            {
+                "name": "chapter-243",
+                "number": 243,
+                "createdAt": "2025-02-10T00:14:59Z"
+            },
+            {
+                "name": "chapter-242",
+                "number": 242,
+                "createdAt": "2025-02-10T00:14:58Z"
+            },
+            {
+                "name": "chapter-241",
+                "number": 241,
+                "createdAt": "2025-02-10T00:14:53Z"
+            },
+            {
+                "name": "chapter-240",
+                "number": 240,
+                "createdAt": "2025-02-10T00:14:52Z"
+            },
+            {
+                "name": "chapter-239",
+                "number": 239,
+                "createdAt": "2025-02-10T00:14:51Z"
+            },
+            {
+                "name": "chapter-238.5",
+                "number": 238.5,
+                "createdAt": "2025-02-10T00:14:48Z"
+            },
+            {
+                "name": "chapter-238",
+                "number": 238,
+                "createdAt": "2025-02-10T00:14:45Z"
+            },
+            {
+                "name": "chapter-237",
+                "number": 237,
+                "createdAt": "2025-02-10T00:14:44Z"
+            },
+            {
+                "name": "chapter-236",
+                "number": 236,
+                "createdAt": "2025-02-10T00:14:43Z"
+            },
+            {
+                "name": "chapter-235",
+                "number": 235,
+                "createdAt": "2025-02-10T00:14:42Z"
+            },
+            {
+                "name": "chapter-234",
+                "number": 234,
+                "createdAt": "2025-02-10T00:14:33Z"
+            },
+            {
+                "name": "chapter-233",
+                "number": 233,
+                "createdAt": "2025-02-10T00:14:31Z"
+            },
+            {
+                "name": "chapter-232",
+                "number": 232,
+                "createdAt": "2025-02-10T00:14:31Z"
+            },
+            {
+                "name": "chapter-231",
+                "number": 231,
+                "createdAt": "2025-02-10T00:14:30Z"
+            },
+            {
+                "name": "chapter-230",
+                "number": 230,
+                "createdAt": "2025-02-10T00:14:29Z"
+            },
+            {
+                "name": "chapter-229",
+                "number": 229,
+                "createdAt": "2025-02-10T00:14:26Z"
+            },
+            {
+                "name": "chapter-228",
+                "number": 228,
+                "createdAt": "2025-02-10T00:14:26Z"
+            },
+            {
+                "name": "chapter-227",
+                "number": 227,
+                "createdAt": "2025-02-10T00:14:25Z"
+            },
+            {
+                "name": "chapter-226",
+                "number": 226,
+                "createdAt": "2025-02-10T00:14:21Z"
+            },
+            {
+                "name": "chapter-225",
+                "number": 225,
+                "createdAt": "2025-02-10T00:14:21Z"
+            },
+            {
+                "name": "chapter-224",
+                "number": 224,
+                "createdAt": "2025-02-10T00:14:13Z"
+            },
+            {
+                "name": "chapter-223",
+                "number": 223,
+                "createdAt": "2025-02-10T00:14:12Z"
+            },
+            {
+                "name": "chapter-222",
+                "number": 222,
+                "createdAt": "2025-02-10T00:14:11Z"
+            },
+            {
+                "name": "chapter-221",
+                "number": 221,
+                "createdAt": "2025-02-10T00:14:10Z"
+            },
+            {
+                "name": "chapter-220",
+                "number": 220,
+                "createdAt": "2025-02-10T00:13:40Z"
+            },
+            {
+                "name": "chapter-219",
+                "number": 219,
+                "createdAt": "2025-02-10T00:13:38Z"
+            },
+            {
+                "name": "chapter-218",
+                "number": 218,
+                "createdAt": "2025-02-10T00:13:37Z"
+            },
+            {
+                "name": "chapter-217",
+                "number": 217,
+                "createdAt": "2025-02-10T00:13:35Z"
+            },
+            {
+                "name": "chapter-216",
+                "number": 216,
+                "createdAt": "2025-02-10T00:13:34Z"
+            },
+            {
+                "name": "chapter-215",
+                "number": 215,
+                "createdAt": "2025-02-10T00:13:33Z"
+            },
+            {
+                "name": "chapter-214",
+                "number": 214,
+                "createdAt": "2025-02-10T00:13:32Z"
+            },
+            {
+                "name": "chapter-213",
+                "number": 213,
+                "createdAt": "2025-02-10T00:13:31Z"
+            },
+            {
+                "name": "chapter-212",
+                "number": 212,
+                "createdAt": "2025-02-10T00:13:28Z"
+            },
+            {
+                "name": "chapter-211",
+                "number": 211,
+                "createdAt": "2025-02-10T00:13:27Z"
+            },
+            {
+                "name": "chapter-210",
+                "number": 210,
+                "createdAt": "2025-02-10T00:13:24Z"
+            },
+            {
+                "name": "chapter-209",
+                "number": 209,
+                "createdAt": "2025-02-10T00:13:23Z"
+            },
+            {
+                "name": "chapter-208",
+                "number": 208,
+                "createdAt": "2025-02-10T00:13:22Z"
+            },
+            {
+                "name": "chapter-207",
+                "number": 207,
+                "createdAt": "2025-02-10T00:13:21Z"
+            },
+            {
+                "name": "chapter-206",
+                "number": 206,
+                "createdAt": "2025-02-10T00:13:18Z"
+            },
+            {
+                "name": "chapter-205",
+                "number": 205,
+                "createdAt": "2025-02-10T00:13:17Z"
+            },
+            {
+                "name": "chapter-204",
+                "number": 204,
+                "createdAt": "2025-02-10T00:13:16Z"
+            },
+            {
+                "name": "chapter-203",
+                "number": 203,
+                "createdAt": "2025-02-10T00:13:15Z"
+            },
+            {
+                "name": "chapter-202",
+                "number": 202,
+                "createdAt": "2025-02-10T00:13:14Z"
+            },
+            {
+                "name": "chapter-201",
+                "number": 201,
+                "createdAt": "2025-02-10T00:13:12Z"
+            },
+            {
+                "name": "chapter-200",
+                "number": 200,
+                "createdAt": "2025-02-10T00:13:11Z"
+            },
+            {
+                "name": "chapter-199",
+                "number": 199,
+                "createdAt": "2025-02-10T00:13:10Z"
+            },
+            {
+                "name": "chapter-198",
+                "number": 198,
+                "createdAt": "2025-02-10T00:13:09Z"
+            },
+            {
+                "name": "chapter-197",
+                "number": 197,
+                "createdAt": "2025-02-10T00:13:08Z"
+            },
+            {
+                "name": "chapter-196",
+                "number": 196,
+                "createdAt": "2025-02-10T00:13:07Z"
+            },
+            {
+                "name": "chapter-195",
+                "number": 195,
+                "createdAt": "2025-02-10T00:13:06Z"
+            },
+            {
+                "name": "chapter-194",
+                "number": 194,
+                "createdAt": "2025-02-10T00:13:05Z"
+            },
+            {
+                "name": "chapter-193",
+                "number": 193,
+                "createdAt": "2025-02-10T00:13:04Z"
+            },
+            {
+                "name": "chapter-192",
+                "number": 192,
+                "createdAt": "2025-02-10T00:13:03Z"
+            },
+            {
+                "name": "chapter-191",
+                "number": 191,
+                "createdAt": "2025-02-10T00:13:02Z"
+            },
+            {
+                "name": "chapter-190",
+                "number": 190,
+                "createdAt": "2025-02-10T00:13:01Z"
+            },
+            {
+                "name": "chapter-189",
+                "number": 189,
+                "createdAt": "2025-02-10T00:13:00Z"
+            },
+            {
+                "name": "chapter-188",
+                "number": 188,
+                "createdAt": "2025-02-10T00:12:33Z"
+            },
+            {
+                "name": "chapter-187",
+                "number": 187,
+                "createdAt": "2025-02-10T00:12:33Z"
+            },
+            {
+                "name": "chapter-186",
+                "number": 186,
+                "createdAt": "2025-02-10T00:12:32Z"
+            },
+            {
+                "name": "chapter-185",
+                "number": 185,
+                "createdAt": "2025-02-10T00:12:31Z"
+            },
+            {
+                "name": "chapter-184",
+                "number": 184,
+                "createdAt": "2025-02-10T00:12:30Z"
+            },
+            {
+                "name": "chapter-183",
+                "number": 183,
+                "createdAt": "2025-02-10T00:12:28Z"
+            },
+            {
+                "name": "chapter-182",
+                "number": 182,
+                "createdAt": "2025-02-10T00:12:27Z"
+            },
+            {
+                "name": "chapter-181",
+                "number": 181,
+                "createdAt": "2025-02-10T00:12:27Z"
+            },
+            {
+                "name": "chapter-180",
+                "number": 180,
+                "createdAt": "2025-02-10T00:12:25Z"
+            },
+            {
+                "name": "chapter-179",
+                "number": 179,
+                "createdAt": "2025-02-10T00:12:24Z"
+            },
+            {
+                "name": "chapter-178",
+                "number": 178,
+                "createdAt": "2025-02-10T00:12:23Z"
+            },
+            {
+                "name": "chapter-177",
+                "number": 177,
+                "createdAt": "2025-02-10T00:12:18Z"
+            },
+            {
+                "name": "chapter-176",
+                "number": 176,
+                "createdAt": "2025-02-10T00:12:17Z"
+            },
+            {
+                "name": "chapter-175",
+                "number": 175,
+                "createdAt": "2025-02-10T00:12:16Z"
+            },
+            {
+                "name": "chapter-174",
+                "number": 174,
+                "createdAt": "2025-02-10T00:12:14Z"
+            },
+            {
+                "name": "chapter-173",
+                "number": 173,
+                "createdAt": "2025-02-10T00:12:12Z"
+            },
+            {
+                "name": "chapter-172",
+                "number": 172,
+                "createdAt": "2025-02-10T00:12:11Z"
+            },
+            {
+                "name": "chapter-171",
+                "number": 171,
+                "createdAt": "2025-02-10T00:12:10Z"
+            },
+            {
+                "name": "chapter-170",
+                "number": 170,
+                "createdAt": "2025-02-10T00:12:09Z"
+            },
+            {
+                "name": "chapter-169",
+                "number": 169,
+                "createdAt": "2025-02-10T00:12:08Z"
+            },
+            {
+                "name": "chapter-168",
+                "number": 168,
+                "createdAt": "2025-02-10T00:12:03Z"
+            },
+            {
+                "name": "chapter-167",
+                "number": 167,
+                "createdAt": "2025-02-10T00:12:03Z"
+            },
+            {
+                "name": "chapter-166",
+                "number": 166,
+                "createdAt": "2025-02-10T00:12:02Z"
+            },
+            {
+                "name": "chapter-165",
+                "number": 165,
+                "createdAt": "2025-02-10T00:12:00Z"
+            },
+            {
+                "name": "chapter-164",
+                "number": 164,
+                "createdAt": "2025-02-10T00:12:00Z"
+            },
+            {
+                "name": "chapter-163",
+                "number": 163,
+                "createdAt": "2025-02-10T00:11:59Z"
+            },
+            {
+                "name": "chapter-162",
+                "number": 162,
+                "createdAt": "2025-02-10T00:11:58Z"
+            },
+            {
+                "name": "chapter-161",
+                "number": 161,
+                "createdAt": "2025-02-10T00:11:58Z"
+            },
+            {
+                "name": "chapter-160",
+                "number": 160,
+                "createdAt": "2025-02-10T00:11:57Z"
+            },
+            {
+                "name": "chapter-159",
+                "number": 159,
+                "createdAt": "2025-02-10T00:11:56Z"
+            },
+            {
+                "name": "chapter-158",
+                "number": 158,
+                "createdAt": "2025-02-10T00:11:55Z"
+            },
+            {
+                "name": "chapter-157",
+                "number": 157,
+                "createdAt": "2025-02-10T00:11:53Z"
+            },
+            {
+                "name": "chapter-156",
+                "number": 156,
+                "createdAt": "2025-02-10T00:11:53Z"
+            },
+            {
+                "name": "chapter-155",
+                "number": 155,
+                "createdAt": "2025-02-10T00:11:51Z"
+            },
+            {
+                "name": "chapter-154",
+                "number": 154,
+                "createdAt": "2025-02-10T00:11:49Z"
+            },
+            {
+                "name": "chapter-153",
+                "number": 153,
+                "createdAt": "2025-02-10T00:11:48Z"
+            },
+            {
+                "name": "chapter-152",
+                "number": 152,
+                "createdAt": "2025-02-10T00:11:47Z"
+            },
+            {
+                "name": "chapter-151",
+                "number": 151,
+                "createdAt": "2025-02-10T00:11:46Z"
+            },
+            {
+                "name": "chapter-150",
+                "number": 150,
+                "createdAt": "2025-02-10T00:11:44Z"
+            },
+            {
+                "name": "chapter-149",
+                "number": 149,
+                "createdAt": "2025-02-10T00:11:43Z"
+            },
+            {
+                "name": "chapter-148",
+                "number": 148,
+                "createdAt": "2025-02-10T00:11:42Z"
+            },
+            {
+                "name": "chapter-147",
+                "number": 147,
+                "createdAt": "2025-02-10T00:11:40Z"
+            },
+            {
+                "name": "chapter-146",
+                "number": 146,
+                "createdAt": "2025-02-10T00:11:35Z"
+            },
+            {
+                "name": "chapter-145",
+                "number": 145,
+                "createdAt": "2025-02-10T00:11:34Z"
+            },
+            {
+                "name": "chapter-144",
+                "number": 144,
+                "createdAt": "2025-02-10T00:11:33Z"
+            },
+            {
+                "name": "chapter-143",
+                "number": 143,
+                "createdAt": "2025-02-10T00:11:32Z"
+            },
+            {
+                "name": "chapter-142",
+                "number": 142,
+                "createdAt": "2025-02-10T00:11:31Z"
+            },
+            {
+                "name": "chapter-141",
+                "number": 141,
+                "createdAt": "2025-02-10T00:11:29Z"
+            },
+            {
+                "name": "chapter-140",
+                "number": 140,
+                "createdAt": "2025-02-10T00:11:28Z"
+            },
+            {
+                "name": "chapter-139",
+                "number": 139,
+                "createdAt": "2025-02-10T00:11:27Z"
+            },
+            {
+                "name": "chapter-138",
+                "number": 138,
+                "createdAt": "2025-02-10T00:11:26Z"
+            },
+            {
+                "name": "chapter-137",
+                "number": 137,
+                "createdAt": "2025-02-10T00:11:26Z"
+            },
+            {
+                "name": "chapter-136",
+                "number": 136,
+                "createdAt": "2025-02-10T00:11:24Z"
+            },
+            {
+                "name": "chapter-135",
+                "number": 135,
+                "createdAt": "2025-02-10T00:11:23Z"
+            },
+            {
+                "name": "chapter-134",
+                "number": 134,
+                "createdAt": "2025-02-10T00:11:21Z"
+            },
+            {
+                "name": "chapter-133",
+                "number": 133,
+                "createdAt": "2025-02-10T00:11:18Z"
+            },
+            {
+                "name": "chapter-132",
+                "number": 132,
+                "createdAt": "2025-02-10T00:11:17Z"
+            },
+            {
+                "name": "chapter-131",
+                "number": 131,
+                "createdAt": "2025-02-10T00:11:15Z"
+            },
+            {
+                "name": "chapter-130",
+                "number": 130,
+                "createdAt": "2025-02-10T00:11:15Z"
+            },
+            {
+                "name": "chapter-129",
+                "number": 129,
+                "createdAt": "2025-02-10T00:11:13Z"
+            },
+            {
+                "name": "chapter-128",
+                "number": 128,
+                "createdAt": "2025-02-10T00:11:11Z"
+            },
+            {
+                "name": "chapter-127",
+                "number": 127,
+                "createdAt": "2025-02-10T00:11:09Z"
+            },
+            {
+                "name": "chapter-126",
+                "number": 126,
+                "createdAt": "2025-02-10T00:11:08Z"
+            },
+            {
+                "name": "chapter-125",
+                "number": 125,
+                "createdAt": "2025-02-10T00:11:06Z"
+            },
+            {
+                "name": "chapter-124",
+                "number": 124,
+                "createdAt": "2025-02-10T00:11:05Z"
+            },
+            {
+                "name": "chapter-123",
+                "number": 123,
+                "createdAt": "2025-02-10T00:11:03Z"
+            },
+            {
+                "name": "chapter-122",
+                "number": 122,
+                "createdAt": "2025-02-10T00:11:00Z"
+            },
+            {
+                "name": "chapter-121",
+                "number": 121,
+                "createdAt": "2025-02-10T00:10:59Z"
+            },
+            {
+                "name": "chapter-120",
+                "number": 120,
+                "createdAt": "2025-02-10T00:10:57Z"
+            },
+            {
+                "name": "chapter-119",
+                "number": 119,
+                "createdAt": "2025-02-10T00:10:55Z"
+            },
+            {
+                "name": "chapter-118",
+                "number": 118,
+                "createdAt": "2025-02-10T00:10:55Z"
+            },
+            {
+                "name": "chapter-117",
+                "number": 117,
+                "createdAt": "2025-02-10T00:10:54Z"
+            },
+            {
+                "name": "chapter-116",
+                "number": 116,
+                "createdAt": "2025-02-10T00:10:51Z"
+            },
+            {
+                "name": "chapter-115",
+                "number": 115,
+                "createdAt": "2025-02-10T00:10:49Z"
+            },
+            {
+                "name": "chapter-114",
+                "number": 114,
+                "createdAt": "2025-02-10T00:10:48Z"
+            },
+            {
+                "name": "chapter-113",
+                "number": 113,
+                "createdAt": "2025-02-10T00:10:47Z"
+            },
+            {
+                "name": "chapter-112",
+                "number": 112,
+                "createdAt": "2025-02-10T00:10:47Z"
+            },
+            {
+                "name": "chapter-111",
+                "number": 111,
+                "createdAt": "2025-02-10T00:10:45Z"
+            },
+            {
+                "name": "chapter-110",
+                "number": 110,
+                "createdAt": "2025-02-10T00:10:44Z"
+            },
+            {
+                "name": "chapter-109",
+                "number": 109,
+                "createdAt": "2025-02-10T00:10:42Z"
+            },
+            {
+                "name": "chapter-108",
+                "number": 108,
+                "createdAt": "2025-02-10T00:10:41Z"
+            },
+            {
+                "name": "chapter-107",
+                "number": 107,
+                "createdAt": "2025-02-10T00:10:39Z"
+            },
+            {
+                "name": "chapter-106",
+                "number": 106,
+                "createdAt": "2025-02-10T00:10:39Z"
+            },
+            {
+                "name": "chapter-105",
+                "number": 105,
+                "createdAt": "2025-02-10T00:10:34Z"
+            },
+            {
+                "name": "chapter-104",
+                "number": 104,
+                "createdAt": "2025-02-10T00:10:32Z"
+            },
+            {
+                "name": "chapter-103",
+                "number": 103,
+                "createdAt": "2025-02-10T00:10:31Z"
+            },
+            {
+                "name": "chapter-102",
+                "number": 102,
+                "createdAt": "2025-02-10T00:10:31Z"
+            },
+            {
+                "name": "chapter-101",
+                "number": 101,
+                "createdAt": "2025-02-10T00:10:29Z"
+            },
+            {
+                "name": "chapter-100",
+                "number": 100,
+                "createdAt": "2025-02-10T00:10:28Z"
+            },
+            {
+                "name": "chapter-99",
+                "number": 99,
+                "createdAt": "2025-02-10T00:10:27Z"
+            },
+            {
+                "name": "chapter-98",
+                "number": 98,
+                "createdAt": "2025-02-10T00:10:26Z"
+            },
+            {
+                "name": "chapter-97",
+                "number": 97,
+                "createdAt": "2025-02-10T00:10:25Z"
+            },
+            {
+                "name": "chapter-96",
+                "number": 96,
+                "createdAt": "2025-02-10T00:10:21Z"
+            },
+            {
+                "name": "chapter-95",
+                "number": 95,
+                "createdAt": "2025-02-10T00:10:20Z"
+            },
+            {
+                "name": "chapter-94",
+                "number": 94,
+                "createdAt": "2025-02-10T00:10:19Z"
+            },
+            {
+                "name": "chapter-93",
+                "number": 93,
+                "createdAt": "2025-02-10T00:10:17Z"
+            },
+            {
+                "name": "chapter-92",
+                "number": 92,
+                "createdAt": "2025-02-10T00:10:16Z"
+            },
+            {
+                "name": "chapter-91",
+                "number": 91,
+                "createdAt": "2025-02-10T00:10:14Z"
+            },
+            {
+                "name": "chapter-90",
+                "number": 90,
+                "createdAt": "2025-02-10T00:10:13Z"
+            },
+            {
+                "name": "chapter-89",
+                "number": 89,
+                "createdAt": "2025-02-10T00:10:12Z"
+            },
+            {
+                "name": "chapter-88",
+                "number": 88,
+                "createdAt": "2025-02-10T00:10:10Z"
+            },
+            {
+                "name": "chapter-87",
+                "number": 87,
+                "createdAt": "2025-02-10T00:10:09Z"
+            },
+            {
+                "name": "chapter-86",
+                "number": 86,
+                "createdAt": "2025-02-10T00:10:07Z"
+            },
+            {
+                "name": "chapter-84",
+                "number": 84,
+                "createdAt": "2025-02-10T00:10:06Z"
+            },
+            {
+                "name": "chapter-83",
+                "number": 83,
+                "createdAt": "2025-02-10T00:10:05Z"
+            },
+            {
+                "name": "chapter-82",
+                "number": 82,
+                "createdAt": "2025-02-10T00:10:02Z"
+            },
+            {
+                "name": "chapter-81",
+                "number": 81,
+                "createdAt": "2025-02-10T00:10:01Z"
+            },
+            {
+                "name": "chapter-80",
+                "number": 80,
+                "createdAt": "2025-02-10T00:10:01Z"
+            },
+            {
+                "name": "chapter-79",
+                "number": 79,
+                "createdAt": "2025-02-10T00:10:00Z"
+            },
+            {
+                "name": "chapter-78",
+                "number": 78,
+                "createdAt": "2025-02-10T00:09:59Z"
+            },
+            {
+                "name": "chapter-77",
+                "number": 77,
+                "createdAt": "2025-02-10T00:09:58Z"
+            },
+            {
+                "name": "chapter-76",
+                "number": 76,
+                "createdAt": "2025-02-10T00:09:57Z"
+            },
+            {
+                "name": "chapter-75",
+                "number": 75,
+                "createdAt": "2025-02-10T00:09:56Z"
+            },
+            {
+                "name": "chapter-74",
+                "number": 74,
+                "createdAt": "2025-02-10T00:09:55Z"
+            },
+            {
+                "name": "chapter-73",
+                "number": 73,
+                "createdAt": "2025-02-10T00:09:54Z"
+            },
+            {
+                "name": "chapter-72",
+                "number": 72,
+                "createdAt": "2025-02-10T00:09:52Z"
+            },
+            {
+                "name": "chapter-71",
+                "number": 71,
+                "createdAt": "2025-02-10T00:09:52Z"
+            },
+            {
+                "name": "chapter-70",
+                "number": 70,
+                "createdAt": "2025-02-10T00:09:50Z"
+            },
+            {
+                "name": "chapter-69",
+                "number": 69,
+                "createdAt": "2025-02-10T00:09:49Z"
+            },
+            {
+                "name": "chapter-68",
+                "number": 68,
+                "createdAt": "2025-02-10T00:09:48Z"
+            },
+            {
+                "name": "chapter-67",
+                "number": 67,
+                "createdAt": "2025-02-10T00:09:47Z"
+            },
+            {
+                "name": "chapter-66",
+                "number": 66,
+                "createdAt": "2025-02-10T00:09:45Z"
+            },
+            {
+                "name": "chapter-65",
+                "number": 65,
+                "createdAt": "2025-02-10T00:09:44Z"
+            },
+            {
+                "name": "chapter-64",
+                "number": 64,
+                "createdAt": "2025-02-10T00:09:42Z"
+            },
+            {
+                "name": "chapter-63",
+                "number": 63,
+                "createdAt": "2025-02-10T00:09:41Z"
+            },
+            {
+                "name": "chapter-62",
+                "number": 62,
+                "createdAt": "2025-02-10T00:09:40Z"
+            },
+            {
+                "name": "chapter-61",
+                "number": 61,
+                "createdAt": "2025-02-10T00:09:39Z"
+            },
+            {
+                "name": "chapter-60",
+                "number": 60,
+                "createdAt": "2025-02-10T00:09:38Z"
+            },
+            {
+                "name": "chapter-59",
+                "number": 59,
+                "createdAt": "2025-02-10T00:09:36Z"
+            },
+            {
+                "name": "chapter-58",
+                "number": 58,
+                "createdAt": "2025-02-10T00:09:35Z"
+            },
+            {
+                "name": "chapter-57",
+                "number": 57,
+                "createdAt": "2025-02-10T00:09:34Z"
+            },
+            {
+                "name": "chapter-56",
+                "number": 56,
+                "createdAt": "2025-02-10T00:09:32Z"
+            },
+            {
+                "name": "chapter-55",
+                "number": 55,
+                "createdAt": "2025-02-10T00:09:31Z"
+            },
+            {
+                "name": "chapter-54",
+                "number": 54,
+                "createdAt": "2025-02-10T00:09:30Z"
+            },
+            {
+                "name": "chapter-53",
+                "number": 53,
+                "createdAt": "2025-02-10T00:09:29Z"
+            },
+            {
+                "name": "chapter-52",
+                "number": 52,
+                "createdAt": "2025-02-10T00:09:28Z"
+            },
+            {
+                "name": "chapter-51",
+                "number": 51,
+                "createdAt": "2025-02-10T00:09:27Z"
+            },
+            {
+                "name": "chapter-50",
+                "number": 50,
+                "createdAt": "2025-02-10T00:09:26Z"
+            },
+            {
+                "name": "chapter-49",
+                "number": 49,
+                "createdAt": "2025-02-10T00:09:25Z"
+            },
+            {
+                "name": "chapter-48",
+                "number": 48,
+                "createdAt": "2025-02-10T00:09:24Z"
+            },
+            {
+                "name": "chapter-47",
+                "number": 47,
+                "createdAt": "2025-02-10T00:09:23Z"
+            },
+            {
+                "name": "chapter-46",
+                "number": 46,
+                "createdAt": "2025-02-10T00:09:21Z"
+            },
+            {
+                "name": "chapter-45",
+                "number": 45,
+                "createdAt": "2025-02-10T00:09:19Z"
+            },
+            {
+                "name": "chapter-44",
+                "number": 44,
+                "createdAt": "2025-02-10T00:09:19Z"
+            },
+            {
+                "name": "chapter-43",
+                "number": 43,
+                "createdAt": "2025-02-10T00:09:17Z"
+            },
+            {
+                "name": "chapter-42",
+                "number": 42,
+                "createdAt": "2025-02-10T00:09:16Z"
+            },
+            {
+                "name": "chapter-41",
+                "number": 41,
+                "createdAt": "2025-02-10T00:09:15Z"
+            },
+            {
+                "name": "chapter-40",
+                "number": 40,
+                "createdAt": "2025-02-10T00:09:14Z"
+            },
+            {
+                "name": "chapter-39",
+                "number": 39,
+                "createdAt": "2025-02-10T00:09:13Z"
+            },
+            {
+                "name": "chapter-38",
+                "number": 38,
+                "createdAt": "2025-02-10T00:09:12Z"
+            },
+            {
+                "name": "chapter-37",
+                "number": 37,
+                "createdAt": "2025-02-10T00:09:11Z"
+            },
+            {
+                "name": "chapter-36",
+                "number": 36,
+                "createdAt": "2025-02-10T00:09:10Z"
+            },
+            {
+                "name": "chapter-35",
+                "number": 35,
+                "createdAt": "2025-02-10T00:09:08Z"
+            },
+            {
+                "name": "chapter-34",
+                "number": 34,
+                "createdAt": "2025-02-10T00:09:06Z"
+            },
+            {
+                "name": "chapter-33",
+                "number": 33,
+                "createdAt": "2025-02-10T00:09:05Z"
+            },
+            {
+                "name": "chapter-32",
+                "number": 32,
+                "createdAt": "2025-02-10T00:09:03Z"
+            },
+            {
+                "name": "chapter-31",
+                "number": 31,
+                "createdAt": "2025-02-10T00:09:02Z"
+            },
+            {
+                "name": "chapter-30",
+                "number": 30,
+                "createdAt": "2025-02-10T00:08:56Z"
+            },
+            {
+                "name": "chapter-29",
+                "number": 29,
+                "createdAt": "2025-02-10T00:08:56Z"
+            },
+            {
+                "name": "chapter-28",
+                "number": 28,
+                "createdAt": "2025-02-10T00:08:54Z"
+            },
+            {
+                "name": "chapter-27",
+                "number": 27,
+                "createdAt": "2025-02-10T00:08:52Z"
+            },
+            {
+                "name": "chapter-26",
+                "number": 26,
+                "createdAt": "2025-02-10T00:08:51Z"
+            },
+            {
+                "name": "chapter-25",
+                "number": 25,
+                "createdAt": "2025-02-10T00:08:50Z"
+            },
+            {
+                "name": "chapter-24",
+                "number": 24,
+                "createdAt": "2025-02-10T00:08:49Z"
+            },
+            {
+                "name": "chapter-23",
+                "number": 23,
+                "createdAt": "2025-02-10T00:08:48Z"
+            },
+            {
+                "name": "chapter-22",
+                "number": 22,
+                "createdAt": "2025-02-10T00:08:47Z"
+            },
+            {
+                "name": "chapter-21",
+                "number": 21,
+                "createdAt": "2025-02-10T00:08:46Z"
+            },
+            {
+                "name": "chapter-20",
+                "number": 20,
+                "createdAt": "2025-02-10T00:08:45Z"
+            },
+            {
+                "name": "chapter-19",
+                "number": 19,
+                "createdAt": "2025-02-10T00:08:43Z"
+            },
+            {
+                "name": "chapter-18",
+                "number": 18,
+                "createdAt": "2025-02-10T00:08:43Z"
+            },
+            {
+                "name": "chapter-17",
+                "number": 17,
+                "createdAt": "2025-02-10T00:08:42Z"
+            },
+            {
+                "name": "chapter-16",
+                "number": 16,
+                "createdAt": "2025-02-10T00:08:40Z"
+            },
+            {
+                "name": "chapter-15",
+                "number": 15,
+                "createdAt": "2025-02-10T00:08:36Z"
+            },
+            {
+                "name": "chapter-14",
+                "number": 14,
+                "createdAt": "2025-02-10T00:08:35Z"
+            },
+            {
+                "name": "chapter-13",
+                "number": 13,
+                "createdAt": "2025-02-10T00:08:32Z"
+            },
+            {
+                "name": "chapter-12",
+                "number": 12,
+                "createdAt": "2025-02-10T00:08:30Z"
+            },
+            {
+                "name": "chapter-11",
+                "number": 11,
+                "createdAt": "2025-02-10T00:08:29Z"
+            },
+            {
+                "name": "chapter-10",
+                "number": 10,
+                "createdAt": "2025-02-10T00:08:28Z"
+            },
+            {
+                "name": "chapter-09",
+                "number": 9,
+                "createdAt": "2025-02-10T00:08:27Z"
+            },
+            {
+                "name": "chapter-08",
+                "number": 8,
+                "createdAt": "2025-02-10T00:08:26Z"
+            },
+            {
+                "name": "chapter-07",
+                "number": 7,
+                "createdAt": "2025-02-10T00:08:24Z"
+            },
+            {
+                "name": "chapter-06",
+                "number": 6,
+                "createdAt": "2025-02-10T00:08:20Z"
+            },
+            {
+                "name": "chapter-05",
+                "number": 5,
+                "createdAt": "2025-02-10T00:08:19Z"
+            },
+            {
+                "name": "chapter-04",
+                "number": 4,
+                "createdAt": "2025-02-10T00:08:18Z"
+            },
+            {
+                "name": "chapter-03",
+                "number": 3,
+                "createdAt": "2025-02-10T00:08:17Z"
+            },
+            {
+                "name": "chapter-02",
+                "number": 2,
+                "createdAt": "2025-02-10T00:08:16Z"
+            },
+            {
+                "name": "chapter-01",
+                "number": 1,
+                "createdAt": "2025-02-10T00:08:15Z"
+            }
+        ]
+    },
+    {
+        "slug": "himekishi-ga-classmate-bahasa-indonesia",
+        "chapters": [
+            {
+                "name": "chapter-70",
+                "number": 70,
+                "createdAt": "2025-02-10T00:07:10Z"
+            },
+            {
+                "name": "chapter-69",
+                "number": 69,
+                "createdAt": "2025-02-10T00:07:08Z"
+            },
+            {
+                "name": "chapter-68",
+                "number": 68,
+                "createdAt": "2025-02-10T00:07:08Z"
+            },
+            {
+                "name": "chapter-67",
+                "number": 67,
+                "createdAt": "2025-02-10T00:07:06Z"
+            },
+            {
+                "name": "chapter-66",
+                "number": 66,
+                "createdAt": "2025-02-10T00:07:05Z"
+            },
+            {
+                "name": "chapter-65",
+                "number": 65,
+                "createdAt": "2025-02-10T00:07:05Z"
+            },
+            {
+                "name": "chapter-64",
+                "number": 64,
+                "createdAt": "2025-02-10T00:07:04Z"
+            },
+            {
+                "name": "chapter-63",
+                "number": 63,
+                "createdAt": "2025-02-10T00:07:01Z"
+            },
+            {
+                "name": "chapter-62",
+                "number": 62,
+                "createdAt": "2025-02-10T00:07:00Z"
+            },
+            {
+                "name": "chapter-61",
+                "number": 61,
+                "createdAt": "2025-02-10T00:06:55Z"
+            },
+            {
+                "name": "chapter-60",
+                "number": 60,
+                "createdAt": "2025-02-10T00:06:52Z"
+            },
+            {
+                "name": "chapter-59",
+                "number": 59,
+                "createdAt": "2025-02-10T00:06:51Z"
+            },
+            {
+                "name": "chapter-58",
+                "number": 58,
+                "createdAt": "2025-02-10T00:06:50Z"
+            },
+            {
+                "name": "chapter-57",
+                "number": 57,
+                "createdAt": "2025-02-10T00:06:48Z"
+            },
+            {
+                "name": "chapter-56",
+                "number": 56,
+                "createdAt": "2025-02-10T00:06:47Z"
+            },
+            {
+                "name": "chapter-55",
+                "number": 55,
+                "createdAt": "2025-02-10T00:06:46Z"
+            },
+            {
+                "name": "chapter-54",
+                "number": 54,
+                "createdAt": "2025-02-10T00:06:41Z"
+            },
+            {
+                "name": "chapter-53",
+                "number": 53,
+                "createdAt": "2025-02-10T00:06:37Z"
+            },
+            {
+                "name": "chapter-52",
+                "number": 52,
+                "createdAt": "2025-02-10T00:06:36Z"
+            },
+            {
+                "name": "chapter-51",
+                "number": 51,
+                "createdAt": "2025-02-10T00:06:33Z"
+            },
+            {
+                "name": "chapter-50",
+                "number": 50,
+                "createdAt": "2025-02-10T00:06:31Z"
+            },
+            {
+                "name": "chapter-49",
+                "number": 49,
+                "createdAt": "2025-02-10T00:06:30Z"
+            },
+            {
+                "name": "chapter-48",
+                "number": 48,
+                "createdAt": "2025-02-10T00:06:29Z"
+            },
+            {
+                "name": "chapter-47",
+                "number": 47,
+                "createdAt": "2025-02-10T00:06:27Z"
+            },
+            {
+                "name": "chapter-46",
+                "number": 46,
+                "createdAt": "2025-02-10T00:06:27Z"
+            },
+            {
+                "name": "chapter-45",
+                "number": 45,
+                "createdAt": "2025-02-10T00:06:26Z"
+            },
+            {
+                "name": "chapter-44",
+                "number": 44,
+                "createdAt": "2025-02-10T00:06:23Z"
+            },
+            {
+                "name": "chapter-43",
+                "number": 43,
+                "createdAt": "2025-02-10T00:06:21Z"
+            },
+            {
+                "name": "chapter-42",
+                "number": 42,
+                "createdAt": "2025-02-10T00:06:19Z"
+            },
+            {
+                "name": "chapter-41",
+                "number": 41,
+                "createdAt": "2025-02-10T00:06:19Z"
+            },
+            {
+                "name": "chapter-40",
+                "number": 40,
+                "createdAt": "2025-02-10T00:06:16Z"
+            },
+            {
+                "name": "chapter-39",
+                "number": 39,
+                "createdAt": "2025-02-10T00:06:13Z"
+            },
+            {
+                "name": "chapter-38",
+                "number": 38,
+                "createdAt": "2025-02-10T00:06:10Z"
+            },
+            {
+                "name": "chapter-37",
+                "number": 37,
+                "createdAt": "2025-02-10T00:06:08Z"
+            },
+            {
+                "name": "chapter-36",
+                "number": 36,
+                "createdAt": "2025-02-10T00:06:08Z"
+            },
+            {
+                "name": "chapter-35.2",
+                "number": 35.2,
+                "createdAt": "2025-02-10T00:06:07Z"
+            },
+            {
+                "name": "chapter-35",
+                "number": 35,
+                "createdAt": "2025-02-10T00:06:06Z"
+            },
+            {
+                "name": "chapter-34",
+                "number": 34,
+                "createdAt": "2025-02-10T00:06:04Z"
+            },
+            {
+                "name": "chapter-33",
+                "number": 33,
+                "createdAt": "2025-02-10T00:06:02Z"
+            },
+            {
+                "name": "chapter-32",
+                "number": 32,
+                "createdAt": "2025-02-10T00:06:01Z"
+            },
+            {
+                "name": "chapter-31",
+                "number": 31,
+                "createdAt": "2025-02-10T00:06:00Z"
+            },
+            {
+                "name": "chapter-30",
+                "number": 30,
+                "createdAt": "2025-02-10T00:05:58Z"
+            },
+            {
+                "name": "chapter-29",
+                "number": 29,
+                "createdAt": "2025-02-10T00:05:57Z"
+            },
+            {
+                "name": "chapter-28",
+                "number": 28,
+                "createdAt": "2025-02-10T00:05:56Z"
+            },
+            {
+                "name": "chapter-27",
+                "number": 27,
+                "createdAt": "2025-02-10T00:05:55Z"
+            },
+            {
+                "name": "chapter-26",
+                "number": 26,
+                "createdAt": "2025-02-10T00:05:53Z"
+            },
+            {
+                "name": "chapter-25",
+                "number": 25,
+                "createdAt": "2025-02-10T00:05:51Z"
+            },
+            {
+                "name": "chapter-24",
+                "number": 24,
+                "createdAt": "2025-02-10T00:05:51Z"
+            },
+            {
+                "name": "chapter-23",
+                "number": 23,
+                "createdAt": "2025-02-10T00:05:50Z"
+            },
+            {
+                "name": "chapter-22",
+                "number": 22,
+                "createdAt": "2025-02-10T00:05:47Z"
+            },
+            {
+                "name": "chapter-21",
+                "number": 21,
+                "createdAt": "2025-02-10T00:05:46Z"
+            },
+            {
+                "name": "chapter-20",
+                "number": 20,
+                "createdAt": "2025-02-10T00:05:46Z"
+            },
+            {
+                "name": "chapter-19",
+                "number": 19,
+                "createdAt": "2025-02-10T00:05:44Z"
+            },
+            {
+                "name": "chapter-18",
+                "number": 18,
+                "createdAt": "2025-02-10T00:05:42Z"
+            },
+            {
+                "name": "chapter-17",
+                "number": 17,
+                "createdAt": "2025-02-10T00:05:41Z"
+            },
+            {
+                "name": "chapter-16",
+                "number": 16,
+                "createdAt": "2025-02-10T00:05:40Z"
+            },
+            {
+                "name": "chapter-15",
+                "number": 15,
+                "createdAt": "2025-02-10T00:05:36Z"
+            },
+            {
+                "name": "chapter-14",
+                "number": 14,
+                "createdAt": "2025-02-10T00:05:35Z"
+            },
+            {
+                "name": "chapter-13",
+                "number": 13,
+                "createdAt": "2025-02-10T00:05:35Z"
+            },
+            {
+                "name": "chapter-12",
+                "number": 12,
+                "createdAt": "2025-02-10T00:05:34Z"
+            },
+            {
+                "name": "chapter-11",
+                "number": 11,
+                "createdAt": "2025-02-10T00:05:32Z"
+            },
+            {
+                "name": "chapter-10",
+                "number": 10,
+                "createdAt": "2025-02-10T00:05:30Z"
+            },
+            {
+                "name": "chapter-09",
+                "number": 9,
+                "createdAt": "2025-02-10T00:05:28Z"
+            },
+            {
+                "name": "chapter-08",
+                "number": 8,
+                "createdAt": "2025-02-10T00:05:27Z"
+            },
+            {
+                "name": "chapter-07",
+                "number": 7,
+                "createdAt": "2025-02-10T00:05:26Z"
+            },
+            {
+                "name": "chapter-06",
+                "number": 6,
+                "createdAt": "2025-02-10T00:05:25Z"
+            },
+            {
+                "name": "chapter-05",
+                "number": 5,
+                "createdAt": "2025-02-10T00:05:24Z"
+            },
+            {
+                "name": "chapter-04",
+                "number": 4,
+                "createdAt": "2025-02-10T00:05:23Z"
+            },
+            {
+                "name": "chapter-03",
+                "number": 3,
+                "createdAt": "2025-02-10T00:05:22Z"
+            },
+            {
+                "name": "chapter-02",
+                "number": 2,
+                "createdAt": "2025-02-10T00:05:20Z"
+            },
+            {
+                "name": "chapter-01",
+                "number": 1,
+                "createdAt": "2025-02-10T00:05:12Z"
+            }
+        ]
+    },
+    {
+        "slug": "hazure-waku-no-joutai-ijou-skill-de-saikyou-ni-natta-ore-ga-subete-wo-juurin-suru-made-bahasa-indonesia",
+        "chapters": [
+            {
+                "name": "chapter-56",
+                "number": 56,
+                "createdAt": "2025-02-10T00:03:59Z"
+            },
+            {
+                "name": "chapter-55",
+                "number": 55,
+                "createdAt": "2025-02-10T00:03:58Z"
+            },
+            {
+                "name": "chapter-54",
+                "number": 54,
+                "createdAt": "2025-02-10T00:03:57Z"
+            },
+            {
+                "name": "chapter-53",
+                "number": 53,
+                "createdAt": "2025-02-10T00:03:56Z"
+            },
+            {
+                "name": "chapter-52",
+                "number": 52,
+                "createdAt": "2025-02-10T00:03:55Z"
+            },
+            {
+                "name": "chapter-51",
+                "number": 51,
+                "createdAt": "2025-02-10T00:03:54Z"
+            },
+            {
+                "name": "chapter-50",
+                "number": 50,
+                "createdAt": "2025-02-10T00:03:53Z"
+            },
+            {
+                "name": "chapter-49",
+                "number": 49,
+                "createdAt": "2025-02-10T00:03:50Z"
+            },
+            {
+                "name": "chapter-48",
+                "number": 48,
+                "createdAt": "2025-02-10T00:03:49Z"
+            },
+            {
+                "name": "chapter-47",
+                "number": 47,
+                "createdAt": "2025-02-10T00:03:48Z"
+            },
+            {
+                "name": "chapter-46",
+                "number": 46,
+                "createdAt": "2025-02-10T00:03:47Z"
+            },
+            {
+                "name": "chapter-45",
+                "number": 45,
+                "createdAt": "2025-02-10T00:03:46Z"
+            },
+            {
+                "name": "chapter-44",
+                "number": 44,
+                "createdAt": "2025-02-10T00:03:44Z"
+            },
+            {
+                "name": "chapter-43",
+                "number": 43,
+                "createdAt": "2025-02-10T00:03:43Z"
+            },
+            {
+                "name": "chapter-42",
+                "number": 42,
+                "createdAt": "2025-02-10T00:03:42Z"
+            },
+            {
+                "name": "chapter-41",
+                "number": 41,
+                "createdAt": "2025-02-10T00:03:41Z"
+            },
+            {
+                "name": "chapter-40",
+                "number": 40,
+                "createdAt": "2025-02-10T00:03:40Z"
+            },
+            {
+                "name": "chapter-39.2",
+                "number": 39.2,
+                "createdAt": "2025-02-10T00:03:38Z"
+            },
+            {
+                "name": "chapter-39.1",
+                "number": 39.1,
+                "createdAt": "2025-02-10T00:03:37Z"
+            },
+            {
+                "name": "chapter-38.2",
+                "number": 38.2,
+                "createdAt": "2025-02-10T00:03:36Z"
+            },
+            {
+                "name": "chapter-38.1",
+                "number": 38.1,
+                "createdAt": "2025-02-10T00:03:30Z"
+            },
+            {
+                "name": "chapter-37",
+                "number": 37,
+                "createdAt": "2025-02-10T00:03:29Z"
+            },
+            {
+                "name": "chapter-36.2",
+                "number": 36.2,
+                "createdAt": "2025-02-10T00:03:28Z"
+            },
+            {
+                "name": "chapter-36.1",
+                "number": 36.1,
+                "createdAt": "2025-02-10T00:03:26Z"
+            },
+            {
+                "name": "chapter-35",
+                "number": 35,
+                "createdAt": "2025-02-10T00:03:25Z"
+            },
+            {
+                "name": "chapter-34",
+                "number": 34,
+                "createdAt": "2025-02-10T00:03:23Z"
+            },
+            {
+                "name": "chapter-33",
+                "number": 33,
+                "createdAt": "2025-02-10T00:03:23Z"
+            },
+            {
+                "name": "chapter-32",
+                "number": 32,
+                "createdAt": "2025-02-10T00:03:22Z"
+            },
+            {
+                "name": "chapter-31",
+                "number": 31,
+                "createdAt": "2025-02-10T00:03:20Z"
+            },
+            {
+                "name": "chapter-30",
+                "number": 30,
+                "createdAt": "2025-02-10T00:03:20Z"
+            },
+            {
+                "name": "chapter-29.5",
+                "number": 29.5,
+                "createdAt": "2025-02-10T00:03:19Z"
+            },
+            {
+                "name": "chapter-29",
+                "number": 29,
+                "createdAt": "2025-02-10T00:03:18Z"
+            },
+            {
+                "name": "chapter-28",
+                "number": 28,
+                "createdAt": "2025-02-10T00:03:17Z"
+            },
+            {
+                "name": "chapter-27",
+                "number": 27,
+                "createdAt": "2025-02-10T00:03:16Z"
+            },
+            {
+                "name": "chapter-26",
+                "number": 26,
+                "createdAt": "2025-02-10T00:03:15Z"
+            },
+            {
+                "name": "chapter-25",
+                "number": 25,
+                "createdAt": "2025-02-10T00:03:13Z"
+            },
+            {
+                "name": "chapter-24",
+                "number": 24,
+                "createdAt": "2025-02-10T00:03:12Z"
+            },
+            {
+                "name": "chapter-23",
+                "number": 23,
+                "createdAt": "2025-02-10T00:03:12Z"
+            },
+            {
+                "name": "chapter-22",
+                "number": 22,
+                "createdAt": "2025-02-10T00:03:11Z"
+            },
+            {
+                "name": "chapter-21",
+                "number": 21,
+                "createdAt": "2025-02-10T00:03:10Z"
+            },
+            {
+                "name": "chapter-20",
+                "number": 20,
+                "createdAt": "2025-02-10T00:03:07Z"
+            },
+            {
+                "name": "chapter-19",
+                "number": 19,
+                "createdAt": "2025-02-10T00:03:04Z"
+            },
+            {
+                "name": "chapter-18",
+                "number": 18,
+                "createdAt": "2025-02-10T00:03:03Z"
+            },
+            {
+                "name": "chapter-17",
+                "number": 17,
+                "createdAt": "2025-02-10T00:03:02Z"
+            },
+            {
+                "name": "chapter-16",
+                "number": 16,
+                "createdAt": "2025-02-10T00:03:00Z"
+            },
+            {
+                "name": "chapter-15",
+                "number": 15,
+                "createdAt": "2025-02-10T00:02:56Z"
+            },
+            {
+                "name": "chapter-14",
+                "number": 14,
+                "createdAt": "2025-02-10T00:02:55Z"
+            },
+            {
+                "name": "chapter-13",
+                "number": 13,
+                "createdAt": "2025-02-10T00:02:53Z"
+            },
+            {
+                "name": "chapter-12",
+                "number": 12,
+                "createdAt": "2025-02-10T00:02:52Z"
+            },
+            {
+                "name": "chapter-11",
+                "number": 11,
+                "createdAt": "2025-02-10T00:02:49Z"
+            },
+            {
+                "name": "chapter-10",
+                "number": 10,
+                "createdAt": "2025-02-10T00:02:48Z"
+            },
+            {
+                "name": "chapter-09",
+                "number": 9,
+                "createdAt": "2025-02-10T00:02:47Z"
+            },
+            {
+                "name": "chapter-08",
+                "number": 8,
+                "createdAt": "2025-02-10T00:02:46Z"
+            },
+            {
+                "name": "chapter-07",
+                "number": 7,
+                "createdAt": "2025-02-10T00:02:41Z"
+            },
+            {
+                "name": "chapter-06",
+                "number": 6,
+                "createdAt": "2025-02-10T00:02:40Z"
+            },
+            {
+                "name": "chapter-05",
+                "number": 5,
+                "createdAt": "2025-02-10T00:02:39Z"
+            },
+            {
+                "name": "chapter-04",
+                "number": 4,
+                "createdAt": "2025-02-10T00:02:38Z"
+            },
+            {
+                "name": "chapter-03",
+                "number": 3,
+                "createdAt": "2025-02-10T00:02:36Z"
+            },
+            {
+                "name": "chapter-02",
+                "number": 2,
+                "createdAt": "2025-02-10T00:02:35Z"
+            },
+            {
+                "name": "chapter-01",
+                "number": 1,
+                "createdAt": "2025-02-10T00:02:34Z"
+            }
+        ]
+    },
+    {
+        "slug": "ghost-fixers-bahasa-indonesia",
+        "chapters": [
+            {
+                "name": "chapter-35",
+                "number": 35,
+                "createdAt": "2025-02-10T00:01:53Z"
+            },
+            {
+                "name": "chapter-34.5",
+                "number": 34.5,
+                "createdAt": "2025-02-10T00:01:50Z"
+            },
+            {
+                "name": "chapter-34",
+                "number": 34,
+                "createdAt": "2025-02-10T00:01:48Z"
+            },
+            {
+                "name": "chapter-33",
+                "number": 33,
+                "createdAt": "2025-02-10T00:01:47Z"
+            },
+            {
+                "name": "chapter-32",
+                "number": 32,
+                "createdAt": "2025-02-10T00:01:45Z"
+            },
+            {
+                "name": "chapter-31",
+                "number": 31,
+                "createdAt": "2025-02-10T00:01:45Z"
+            },
+            {
+                "name": "chapter-30.5",
+                "number": 30.5,
+                "createdAt": "2025-02-10T00:01:44Z"
+            },
+            {
+                "name": "chapter-30",
+                "number": 30,
+                "createdAt": "2025-02-10T00:01:43Z"
+            },
+            {
+                "name": "chapter-29",
+                "number": 29,
+                "createdAt": "2025-02-10T00:01:42Z"
+            },
+            {
+                "name": "chapter-28.5",
+                "number": 28.5,
+                "createdAt": "2025-02-10T00:01:40Z"
+            },
+            {
+                "name": "chapter-28",
+                "number": 28,
+                "createdAt": "2025-02-10T00:01:39Z"
+            },
+            {
+                "name": "chapter-27",
+                "number": 27,
+                "createdAt": "2025-02-10T00:01:39Z"
+            },
+            {
+                "name": "chapter-26",
+                "number": 26,
+                "createdAt": "2025-02-10T00:01:38Z"
+            },
+            {
+                "name": "chapter-25.5",
+                "number": 25.5,
+                "createdAt": "2025-02-10T00:01:37Z"
+            },
+            {
+                "name": "chapter-25",
+                "number": 25,
+                "createdAt": "2025-02-10T00:01:36Z"
+            },
+            {
+                "name": "chapter-24",
+                "number": 24,
+                "createdAt": "2025-02-10T00:01:35Z"
+            },
+            {
+                "name": "chapter-23",
+                "number": 23,
+                "createdAt": "2025-02-10T00:01:34Z"
+            },
+            {
+                "name": "chapter-22.5",
+                "number": 22.5,
+                "createdAt": "2025-02-10T00:01:33Z"
+            },
+            {
+                "name": "chapter-22",
+                "number": 22,
+                "createdAt": "2025-02-10T00:01:30Z"
+            },
+            {
+                "name": "chapter-21",
+                "number": 21,
+                "createdAt": "2025-02-10T00:01:29Z"
+            },
+            {
+                "name": "chapter-20",
+                "number": 20,
+                "createdAt": "2025-02-10T00:01:25Z"
+            },
+            {
+                "name": "chapter-19",
+                "number": 19,
+                "createdAt": "2025-02-10T00:01:24Z"
+            },
+            {
+                "name": "chapter-18",
+                "number": 18,
+                "createdAt": "2025-02-10T00:01:22Z"
+            },
+            {
+                "name": "chapter-17",
+                "number": 17,
+                "createdAt": "2025-02-10T00:01:20Z"
+            },
+            {
+                "name": "chapter-16.5",
+                "number": 16.5,
+                "createdAt": "2025-02-10T00:01:19Z"
+            },
+            {
+                "name": "chapter-16",
+                "number": 16,
+                "createdAt": "2025-02-10T00:01:18Z"
+            },
+            {
+                "name": "chapter-15",
+                "number": 15,
+                "createdAt": "2025-02-10T00:01:17Z"
+            },
+            {
+                "name": "chapter-14",
+                "number": 14,
+                "createdAt": "2025-02-10T00:01:15Z"
+            },
+            {
+                "name": "chapter-13.5",
+                "number": 13.5,
+                "createdAt": "2025-02-10T00:01:12Z"
+            },
+            {
+                "name": "chapter-13",
+                "number": 13,
+                "createdAt": "2025-02-10T00:01:11Z"
+            },
+            {
+                "name": "chapter-12",
+                "number": 12,
+                "createdAt": "2025-02-10T00:01:10Z"
+            },
+            {
+                "name": "chapter-11",
+                "number": 11,
+                "createdAt": "2025-02-10T00:01:09Z"
+            },
+            {
+                "name": "chapter-10.5",
+                "number": 10.5,
+                "createdAt": "2025-02-10T00:01:08Z"
+            },
+            {
+                "name": "chapter-10",
+                "number": 10,
+                "createdAt": "2025-02-10T00:01:07Z"
+            },
+            {
+                "name": "chapter-09",
+                "number": 9,
+                "createdAt": "2025-02-10T00:01:06Z"
+            },
+            {
+                "name": "chapter-08",
+                "number": 8,
+                "createdAt": "2025-02-10T00:01:06Z"
+            },
+            {
+                "name": "chapter-07",
+                "number": 7,
+                "createdAt": "2025-02-10T00:01:04Z"
+            },
+            {
+                "name": "chapter-06.5",
+                "number": 6.5,
+                "createdAt": "2025-02-10T00:01:03Z"
+            },
+            {
+                "name": "chapter-06",
+                "number": 6,
+                "createdAt": "2025-02-10T00:01:03Z"
+            },
+            {
+                "name": "chapter-05",
+                "number": 5,
+                "createdAt": "2025-02-10T00:01:02Z"
+            },
+            {
+                "name": "chapter-04",
+                "number": 4,
+                "createdAt": "2025-02-10T00:01:01Z"
+            },
+            {
+                "name": "chapter-03.5",
+                "number": 3.5,
+                "createdAt": "2025-02-10T00:00:59Z"
+            },
+            {
+                "name": "chapter-03",
+                "number": 3,
+                "createdAt": "2025-02-10T00:00:59Z"
+            },
+            {
+                "name": "chapter-02",
+                "number": 2,
+                "createdAt": "2025-02-10T00:00:58Z"
+            },
+            {
+                "name": "chapter-01",
+                "number": 1,
+                "createdAt": "2025-02-10T00:00:57Z"
+            }
+        ]
+    },
+    {
         "slug": "ryoushin-no-shakkin-wo-katagawari-shite-morau-jouken-wa-nihonichi-kawaii-joshikousei-to-issho-ni-kurasu-koto-deshita-bahasa-indonesia",
         "chapters": [
             {
