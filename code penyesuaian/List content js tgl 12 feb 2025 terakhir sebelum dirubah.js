@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { BookOpenIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/router';
-import { usePagination } from '../context/PaginationContext';
 
 const generateSlug = (folderName) => {
   return folderName
@@ -12,35 +11,45 @@ const generateSlug = (folderName) => {
 };
 
 export default function ListContent({ comics }) {
- const router = useRouter();
-   const { currentPage, setCurrentPage } = usePagination();
-   const [itemsPerPage, setItemsPerPage] = useState(15);
- 
-   useEffect(() => {
-     const updateItemsPerPage = () => {
-       if (window.innerWidth <= 640) {
-         setItemsPerPage(12);
-       } else {
-         setItemsPerPage(15);
-       }
-     };
-     updateItemsPerPage();
-     window.addEventListener('resize', updateItemsPerPage);
-     return () => window.removeEventListener('resize', updateItemsPerPage);
-   }, []);
- 
-   const totalPages = Math.ceil(comics.length / itemsPerPage);
- 
-   useEffect(() => {
-     if (router.query.page) {
-       setCurrentPage(Number(router.query.page));
-     }
-   }, [router.query.page]);
- 
-   const currentComics = comics.slice(
-     (currentPage - 1) * itemsPerPage,
-     currentPage * itemsPerPage
-   );
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1); // Halaman saat ini
+  const [itemsPerPage, setItemsPerPage] = useState(15); // Default 15 item per halaman
+
+  // Menentukan jumlah item per halaman berdasarkan lebar layar
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth <= 640) { // Untuk perangkat mobile (small screens)
+        setItemsPerPage(12); // Maksimal 12 item per halaman untuk mobile
+      } else {
+        setItemsPerPage(15); // 15 item per halaman untuk layar besar
+      }
+    };
+
+    // Panggil fungsi di awal
+    updateItemsPerPage();
+
+    // Tambahkan event listener untuk mendeteksi perubahan ukuran layar
+    window.addEventListener('resize', updateItemsPerPage);
+
+    // Bersihkan event listener ketika komponen di-unmount
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
+
+  // Hitung total halaman berdasarkan jumlah konten
+  const totalPages = Math.ceil(comics.length / itemsPerPage);
+
+  // Ambil currentPage dari query parameter URL (jika ada)
+  useEffect(() => {
+    if (router.query.page) {
+      setCurrentPage(Number(router.query.page));
+    }
+  }, [router.query.page]);
+
+  // Filter konten untuk halaman saat ini
+  const currentComics = comics.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const getBackgroundColor = (type) => {
     switch (type) {
@@ -59,7 +68,14 @@ export default function ListContent({ comics }) {
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+      // Scroll ke atas dengan smooth
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+  
+      // Update URL dengan query parameter ?page={page}
       router.push(`?page=${page}`, undefined, { shallow: true });
     }
   };
@@ -118,33 +134,33 @@ export default function ListContent({ comics }) {
       </div>
 
           {/* Pagination */}
-          <div className="col-span-full flex justify-center mt-4">
-        <nav className="inline-flex rounded-md shadow">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-          {Array.from({ length: totalPages }, (_, index) => (
+        <div className="col-span-full flex justify-center mt-4">
+          <nav className="inline-flex rounded-md shadow">
             <button
-              key={index}
-              onClick={() => handlePageChange(index + 1)}
-              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white ${currentPage === index + 1 ? 'bg-gray-700 text-white' : ''}`}
+              onClick={() => handlePageChange(currentPage - 1)}
+              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-l-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={currentPage === 1}
             >
-              {index + 1}
+              Previous
             </button>
-          ))}
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </nav>
-      </div>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 border-t border-b border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white ${currentPage === index + 1 ? 'bg-gray-700 text-white' : ''}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              className={`px-4 py-2 border border-gray-700 text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-white rounded-r-md ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </nav>
+        </div>
 
     </main>
   );
