@@ -24,13 +24,7 @@ export async function getStaticProps({ params }) {
         const chapterFiles = fs.readdirSync(comicDir).filter((file) => file.startsWith('chapter-') && file.endsWith('.mdx'));
 
         // Urutkan chapter berdasarkan nama file
-       // const sortedChapters = chapterFiles.sort();
-       const sortedChapters = chapterFiles.sort((a, b) => {
-        const numA = parseInt(a.match(/\d+/)[0], 10);
-        const numB = parseInt(b.match(/\d+/)[0], 10);
-        return numA - numB;
-    });
-    
+        const sortedChapters = chapterFiles.sort();
 
         // Temukan index chapter saat ini
         const currentIndex = sortedChapters.indexOf(`${chapterSlug}.mdx`);
