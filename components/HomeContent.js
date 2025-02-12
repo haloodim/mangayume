@@ -109,6 +109,15 @@ export default function HomeContent({ comics }) {
     }
   };
 
+
+  //blur image contetn
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+      const timer = setTimeout(() => setIsLoaded(true), 500); // Simulasi loading
+      return () => clearTimeout(timer);
+  }, []);
+
   return (
     <main className="container mx-auto p-4 min-h-screen">
       <div className="bg-gray-800 min-h-screen p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
@@ -126,7 +135,8 @@ export default function HomeContent({ comics }) {
                 <Link href={`/komik/${slug}`} className="image-hover">
                   <img
                     alt={`Cover of ${comic.title}`}
-                    className="rounded-lg w-full h-64 object-cover"
+                    className={`rounded-lg w-full h-64 object-cover transition-all duration-700 
+                    ${isLoaded ? 'blur-none opacity-100' : 'blur-md opacity-50'}`}
                     src={comic.image}
                     loading="lazy"
                   />

@@ -9,7 +9,6 @@ import FloatingButton from '../../../components/FloatingButton';
 import { MDXRemote } from 'next-mdx-remote'; // Import MDXRemote untuk render MDX
 import { serialize } from 'next-mdx-remote/serialize'; // Import serialize untuk mengonversi MDX
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 
 // Fungsi untuk mengambil data chapter
@@ -126,13 +125,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
     const isFirstChapter = currentIndex === 0;
     const isLastChapter = currentIndex === sortedChapters.length - 1;
 
-    //blur image contetn
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsLoaded(true), 500); // Simulasi loading
-        return () => clearTimeout(timer);
-    }, []);
+    
 
     return (
         <div className="bg-gray-900 text-white font-sans">
@@ -147,7 +140,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     <p className="text-center text-sm text-gray-400">
                         Lihat Semua Chapter{' '}
                         <Link href={`/komik/${router.query.slug}`} className="text-yellow-400 hover:underline">
-                            {chapter.title.replace(/Chapter \d+(\.\d+)?/i, '')}
+                        {chapter.title.replace(/Chapter \d+(\.\d+)?/i, '')}
                         </Link>
                     </p>
 
@@ -179,10 +172,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
 
 
                 {/* Galeri Gambar */}
-                <div
-                    className={`bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40 transition-all duration-700 
-                    ${isLoaded ? 'blur-none opacity-100' : 'blur-md opacity-50'}`}
-                >
+                <div className="bg-gray-800 p-2 sm:p-6 md:p-6 rounded-lg shadow-lg mx-0 sm:mx-4 md:mx-20 lg:mx-40">
                     <center>
                         <MDXRemote {...chapter.content} />
                     </center>
