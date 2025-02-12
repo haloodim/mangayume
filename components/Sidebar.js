@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePagination } from "../context/PaginationContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,13 +54,13 @@ export default function Navbar() {
           <div className="flex items-center p-4 mt-8">
             {/* Bisa ditambahkan logo atau nama jika perlu */}
           </div>
-          <Link href="/" className="block py-2 px-4 hover:text-gray-400">
+          <Link href="/" onClick={() => setCurrentPage(1)} className="block py-2 px-4 hover:text-gray-400">
             Beranda
           </Link>
           <Link href="/project" className="block py-2 px-4 hover:text-gray-400">
             Project
           </Link>
-          <Link href="/list" className="block py-2 px-4 hover:text-gray-400">
+          <Link href="/list" onClick={() => setCurrentPage(1)} className="block py-2 px-4 hover:text-gray-400">
             Daftar Komik
           </Link>
           <Link href="#" className="block py-2 px-4 hover:text-gray-400">

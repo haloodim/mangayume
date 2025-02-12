@@ -42,8 +42,9 @@ export async function getStaticProps() {
   });
 
   // Urutkan berdasarkan waktu pembuatan terbaru (dimodifikasi)
-  comics.sort((a, b) => new Date(b.creationTime) - new Date(a.creationTime));
-
+  //comics.sort((a, b) => new Date(b.creationTime) - new Date(a.creationTime));
+  //urutkan bersarkan slug
+  comics.sort((a, b) => a.slug.localeCompare(b.slug));
   return {
     props: { comics },
   };
