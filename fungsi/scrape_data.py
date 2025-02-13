@@ -122,7 +122,7 @@ rilis: {rilis}
                         chapter_number = re.search(r"(\d+(\.\d+)?)", chapter_title).group(1)
 
                         # Menambahkan gambar ke dalam konten chapter (vertikal)
-                        image_html = "".join([f'<img src="{img}" alt="{title} Chapter {chapter_number} Bahasa Indonesia" loading="lazy" />\n' for img in image_links])
+                        image_html = "".join([f'<img src="{img}" alt="{title} Chapter {chapter_number} Bahasa Indonesia"  />\n' for img in image_links])
 
                         mdx_content = f"""---
 title: "{title} Chapter {chapter_number} Bahasa Indonesia"

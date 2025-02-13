@@ -88,7 +88,7 @@ def create_chapter():
 
     # Tambahkan gambar ke dalam konten dengan tag <img>
     for index, image_link in enumerate(image_links):
-        chapter_mdx_content += f'<img src="{image_link}" alt="{komik_title} Chapter {chapter_number}" loading="lazy" />\n\n'
+        chapter_mdx_content += f'<img src="{image_link}" alt="{komik_title} Chapter {chapter_number}" />\n\n'
 
     # Simpan file chapter.mdx
     with open(chapter_path, "w", encoding="utf-8") as f:
