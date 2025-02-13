@@ -10,7 +10,12 @@ import { MDXRemote } from 'next-mdx-remote'; // Import MDXRemote untuk render MD
 import { serialize } from 'next-mdx-remote/serialize'; // Import serialize untuk mengonversi MDX
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import BlurImage from "../../../components/BlurImage";
 
+export const mdxComponents = {
+    img: (props) => <BlurImage {...props} />,
+};
+  
 
 // Fungsi untuk mengambil data chapter
 // Fungsi untuk mengambil data chapter
@@ -190,7 +195,7 @@ export default function Chapter({ chapter, error, prevChapter, nextChapter, sort
                     ${isLoaded ? 'blur-none opacity-100' : 'blur-md opacity-50'}`}
                 >
                     <center>
-                        <MDXRemote {...chapter.content} />
+                        <MDXRemote {...chapter.content} components={mdxComponents} />
                     </center>
                 </div>
 
