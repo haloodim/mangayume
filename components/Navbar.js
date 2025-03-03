@@ -17,7 +17,7 @@ export default function Navbar() {
         </div>
         <nav className="hidden md:flex space-x-6 font-semibold">
           <Link href="/" onClick={() => setCurrentPage(1)} className="hover:text-gray-400">Beranda</Link>
-          <Link href="/project" className="hover:text-gray-400">Project</Link>
+          {/*<Link href="/project" className="hover:text-gray-400">Project</Link>*/}
           <Link href="/list" onClick={() => setCurrentPage(1)} className="hover:text-gray-400">Daftar Komik</Link>
           <Link href="#" className="hover:text-gray-400">Bookmark</Link>
           <Link href="#" className="hover:text-gray-400">Tentang</Link>
