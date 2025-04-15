@@ -57,9 +57,9 @@ export default function Navbar() {
           <Link href="/" onClick={() => setCurrentPage(1)} className="block py-2 px-4 hover:text-gray-400">
             Beranda
           </Link>
-          {/*<Link href="/project" className="block py-2 px-4 hover:text-gray-400">
+          <Link href="/project" className="block py-2 px-4 hover:text-gray-400">
             Project
-          </Link>*/}
+          </Link>
           <Link href="/list" onClick={() => setCurrentPage(1)} className="block py-2 px-4 hover:text-gray-400">
             Daftar Komik
           </Link>
