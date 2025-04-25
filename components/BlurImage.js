@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const BlurImage = ({ src, alt }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-
+  //cek komentar
   return (
     <img
       src={src}
